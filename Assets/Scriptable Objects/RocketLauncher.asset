@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Name: RocketLauncher
   m_EditorClassIdentifier: 
   type: 0
-  reloadTime: 0.2
+  reloadTime: 1
   accuracyRadius: 0
-  projectile: {fileID: 1122582193078896, guid: 267328501575d584b914ffbec4432653, type: 2}
+  projectile: {fileID: 1321372059925976, guid: 267328501575d584b914ffbec4432653, type: 2}
