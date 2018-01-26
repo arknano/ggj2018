@@ -17,6 +17,7 @@ public class EnemyBehaviour : MonoBehaviour {
         agent = GetComponent<NavMeshAgent>();
         agent.speed = enemyConfig.walkSpeed;
         lastShootTime = Time.time;
+        target = GameObject.FindGameObjectWithTag("Player").transform;
 	}
 	
 	// Update is called once per frame
