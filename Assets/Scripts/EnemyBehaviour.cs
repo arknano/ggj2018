@@ -7,7 +7,7 @@ public class EnemyBehaviour : MonoBehaviour {
 
     public ProjectileEnemySO enemyConfig;
     public Transform weaponSpawn;
-    public Transform target;
+    private Transform target;
 
     private NavMeshAgent agent;
     private float lastShootTime;
