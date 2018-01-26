@@ -7,4 +7,5 @@ public class TeleportSO : ScriptableObject {
 
     public Vector3 TeleportPosition;
     public bool CanTeleport;
+    public bool IsTeleporting;
 }

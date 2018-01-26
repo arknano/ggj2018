@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityStandardAssets.Characters.FirstPerson;
 
 public class PlayerDash : MonoBehaviour {
 
@@ -12,9 +13,11 @@ public class PlayerDash : MonoBehaviour {
     public TeleportSO TeleportSO;
     private bool _isDashing;
     private Vector3 _dashPoint;
+    private FirstPersonController FPSController;
 
-	void Start () {
-		
+	void Start ()
+    {
+        FPSController = GetComponent<FirstPersonController>();
 	}
 
 	void Update () {
@@ -47,11 +50,15 @@ public class PlayerDash : MonoBehaviour {
 
     IEnumerator Dashing()
     {
+        FPSController.enabled = false;
+        TeleportSO.IsTeleporting = true;
         PlayerMesh.transform.parent = null;
-        LeanTween.move(PlayerMesh, TeleportSO.TeleportPosition, DashSpeed);
+        LeanTween.move (PlayerMesh, TeleportSO.TeleportPosition, DashSpeed);
         yield return new WaitForSeconds(DashTime);
         LeanTween.move(transform.gameObject, TeleportSO.TeleportPosition, DashSpeed);
+        TeleportSO.IsTeleporting = false;
         yield return new WaitForSeconds(DashSpeed);
         PlayerMesh.transform.parent = transform;
+        FPSController.enabled = true;
     }
 }
