@@ -239,7 +239,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 648a38ff021762944a64a103c660bbea, type: 2}
+  - {fileID: 2100000, guid: 7acb98aea76fff848a57696fde952be4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -271,7 +271,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 648a38ff021762944a64a103c660bbea, type: 2}
+  - {fileID: 2100000, guid: 7acb98aea76fff848a57696fde952be4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -303,7 +303,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 648a38ff021762944a64a103c660bbea, type: 2}
+  - {fileID: 2100000, guid: 7acb98aea76fff848a57696fde952be4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -335,7 +335,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 648a38ff021762944a64a103c660bbea, type: 2}
+  - {fileID: 2100000, guid: 7acb98aea76fff848a57696fde952be4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -367,7 +367,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 648a38ff021762944a64a103c660bbea, type: 2}
+  - {fileID: 2100000, guid: 7acb98aea76fff848a57696fde952be4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -399,7 +399,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 648a38ff021762944a64a103c660bbea, type: 2}
+  - {fileID: 2100000, guid: 7acb98aea76fff848a57696fde952be4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -424,42 +424,42 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1321874619765828}
-  m_Mesh: {fileID: 4300000, guid: 24636da8cb3fac541aa0db8fec9b1119, type: 3}
+  m_Mesh: {fileID: 4300000, guid: 0d9d60fd360c36f499eccbed1237be63, type: 3}
 --- !u!33 &33255260032962750
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1550492187045856}
-  m_Mesh: {fileID: 4300008, guid: 24636da8cb3fac541aa0db8fec9b1119, type: 3}
+  m_Mesh: {fileID: 4300008, guid: 0d9d60fd360c36f499eccbed1237be63, type: 3}
 --- !u!33 &33438167425675812
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1364219585744426}
-  m_Mesh: {fileID: 4300010, guid: 24636da8cb3fac541aa0db8fec9b1119, type: 3}
+  m_Mesh: {fileID: 4300010, guid: 0d9d60fd360c36f499eccbed1237be63, type: 3}
 --- !u!33 &33491501868170058
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1379366929232100}
-  m_Mesh: {fileID: 4300006, guid: 24636da8cb3fac541aa0db8fec9b1119, type: 3}
+  m_Mesh: {fileID: 4300006, guid: 0d9d60fd360c36f499eccbed1237be63, type: 3}
 --- !u!33 &33494024495519414
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1950881609428252}
-  m_Mesh: {fileID: 4300004, guid: 24636da8cb3fac541aa0db8fec9b1119, type: 3}
+  m_Mesh: {fileID: 4300004, guid: 0d9d60fd360c36f499eccbed1237be63, type: 3}
 --- !u!33 &33898332248102766
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1203121928065804}
-  m_Mesh: {fileID: 4300002, guid: 24636da8cb3fac541aa0db8fec9b1119, type: 3}
+  m_Mesh: {fileID: 4300002, guid: 0d9d60fd360c36f499eccbed1237be63, type: 3}
 --- !u!95 &95828574959261698
 Animator:
   serializedVersion: 3
@@ -468,8 +468,8 @@ Animator:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1774064352616066}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 24636da8cb3fac541aa0db8fec9b1119, type: 3}
-  m_Controller: {fileID: 9100000, guid: af5a0ffd0e247d64596b118454c800d1, type: 2}
+  m_Avatar: {fileID: 9000000, guid: 0d9d60fd360c36f499eccbed1237be63, type: 3}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
