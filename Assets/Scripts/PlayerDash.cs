@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityStandardAssets.Characters.FirstPerson;
+using UnityStandardAssets.Utility;
+using UnityEngine.Rendering.PostProcessing;
 
 public class PlayerDash : MonoBehaviour {
 
@@ -11,6 +13,9 @@ public class PlayerDash : MonoBehaviour {
     public Transform Barrel;
     public float DashTime;
     public TeleportSO TeleportSO;
+    public FOVKick FOVKick = new FOVKick();
+    public PostProcessVolume PPBlur;
+    public PostProcessVolume PPBlur2;
     private bool _isDashing;
     private Vector3 _dashPoint;
     private FirstPersonController FPSController;
@@ -18,6 +23,7 @@ public class PlayerDash : MonoBehaviour {
 	void Start ()
     {
         FPSController = GetComponent<FirstPersonController>();
+        FOVKick.Setup(GetComponentInChildren<Camera>());
 	}
 
 	void Update () {
@@ -50,6 +56,8 @@ public class PlayerDash : MonoBehaviour {
 
     IEnumerator Dashing()
     {
+        LeanTween.value(gameObject, 0, 1, DashSpeed).setOnUpdate((float val) => { PPBlur.weight = val; });
+        StartCoroutine(FOVKick.FOVKickUp());
         FPSController.enabled = false;
         TeleportSO.IsTeleporting = true;
         PlayerMesh.transform.parent = null;
@@ -60,5 +68,7 @@ public class PlayerDash : MonoBehaviour {
         yield return new WaitForSeconds(DashSpeed);
         PlayerMesh.transform.parent = transform;
         FPSController.enabled = true;
+        StartCoroutine(FOVKick.FOVKickDown());
+        LeanTween.value(gameObject, 1, 0, DashSpeed).setOnUpdate((float val) => { PPBlur.weight = val; });
     }
 }
