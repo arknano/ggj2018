@@ -13,6 +13,7 @@ ModelImporter:
     100010: Head
     100012: SineWave_board
     100014: Tail
+    100016: SineWave_board1
     400000: Body1
     400002: Body2
     400004: Body3
@@ -21,6 +22,7 @@ ModelImporter:
     400010: Head
     400012: SineWave_board
     400014: Tail
+    400016: SineWave_board1
     2300000: Body1
     2300002: Body2
     2300004: Body3
@@ -28,6 +30,7 @@ ModelImporter:
     2300008: Head
     2300010: SineWave_board
     2300012: Tail
+    2300014: SineWave_board1
     3300000: Body1
     3300002: Body2
     3300004: Body3
@@ -35,6 +38,7 @@ ModelImporter:
     3300008: Head
     3300010: SineWave_board
     3300012: Tail
+    3300014: SineWave_board1
     4300000: Body1
     4300002: Body3
     4300004: Body4
@@ -42,6 +46,7 @@ ModelImporter:
     4300008: SineWave_board
     4300010: Head
     4300012: Body2
+    4300014: SineWave_board1
     9500000: //RootNode
   materials:
     importMaterials: 1
