@@ -645,7 +645,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1382723991
+--- !u!1001 &1350532313
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -654,15 +654,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4497651554933646, guid: 14c162666d856a147aea453098401e50, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 2.8212972
+      value: 1.1618848
       objectReference: {fileID: 0}
     - target: {fileID: 4497651554933646, guid: 14c162666d856a147aea453098401e50, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0.3883283
+      value: 1.1594803
       objectReference: {fileID: 0}
     - target: {fileID: 4497651554933646, guid: 14c162666d856a147aea453098401e50, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -3.4277358
+      value: -2.984891
       objectReference: {fileID: 0}
     - target: {fileID: 4497651554933646, guid: 14c162666d856a147aea453098401e50, type: 2}
       propertyPath: m_LocalRotation.x
@@ -684,12 +684,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114201663613066518, guid: 14c162666d856a147aea453098401e50,
-        type: 2}
-      propertyPath: weaponConfig
-      value: 
-      objectReference: {fileID: 11400000, guid: 2dea0b139027e9e47933d515fe4b019a,
-        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 14c162666d856a147aea453098401e50, type: 2}
   m_IsPrefabParent: 0

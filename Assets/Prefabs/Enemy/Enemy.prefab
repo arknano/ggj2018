@@ -468,8 +468,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37c81bfc762e12642a5831b62fa78192, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyConfig: {fileID: 11400000, guid: deb4d71bd5cfd9c4c8c674f3d4db485c, type: 2}
-  weaponConfig: {fileID: 0}
+  movementConfig: {fileID: 11400000, guid: 414e5b9890fbc4641b8edcc338d31239, type: 2}
+  weaponConfig: {fileID: 11400000, guid: abc93a211cd0d9147ae5feafd4db480d, type: 2}
   weaponSpawn: {fileID: 4913461409702662}
 --- !u!114 &114457726618287628
 MonoBehaviour:

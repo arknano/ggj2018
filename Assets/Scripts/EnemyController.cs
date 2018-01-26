@@ -5,8 +5,8 @@ using UnityEngine.AI;
 
 public class EnemyController : MonoBehaviour {
 
-    public ProjectileEnemySO enemyConfig;
-    public WeaponSO weaponConfig;
+    public EnemyMovementSO movementConfig;
+    public EnemyWeaponSO weaponConfig;
     public Transform weaponSpawn;
 
     private Transform target;
@@ -16,7 +16,7 @@ public class EnemyController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         agent = GetComponent<NavMeshAgent>();
-        agent.speed = enemyConfig.walkSpeed;
+        agent.speed = movementConfig.speed;
         lastShootTime = Time.time;
         target = GameObject.FindGameObjectWithTag("Player").transform;
 	}
@@ -31,21 +31,21 @@ public class EnemyController : MonoBehaviour {
 
     void TryMove(float distanceToTarget)
     {
-        if (distanceToTarget < enemyConfig.sightDistance)
+        if (distanceToTarget < movementConfig.sightDistance)
         {
             agent.destination = target.position;
-            agent.speed = enemyConfig.runSpeed;
+            agent.speed = movementConfig.speed;
         }
         else
         {
             agent.isStopped = true;
-            agent.speed = enemyConfig.walkSpeed;
+            agent.speed = movementConfig.speed;
         }
     }
 
     void TryShoot(float distanceToTarget)
     {
-        if (distanceToTarget < enemyConfig.attackDistance)
+        if (distanceToTarget < movementConfig.attackDistance)
         {
             if (Time.time - lastShootTime >= weaponConfig.reloadTime)
             {
