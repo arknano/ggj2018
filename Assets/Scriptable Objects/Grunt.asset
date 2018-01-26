@@ -14,5 +14,5 @@ MonoBehaviour:
   walkSpeed: 1
   runSpeed: 1
   sightDistance: 50
-  attackDistance: 10
+  attackDistance: 30
   weapon: {fileID: 11400000, guid: 2dea0b139027e9e47933d515fe4b019a, type: 2}
