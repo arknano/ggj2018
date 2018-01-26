@@ -8,5 +8,4 @@ public class ProjectileEnemySO : ScriptableObject {
     public float runSpeed;
     public float sightDistance;
     public float attackDistance;
-    public WeaponSO weapon;
 }

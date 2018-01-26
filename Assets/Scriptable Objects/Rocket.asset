@@ -13,4 +13,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   damage: 10
-  model: {fileID: 1122582193078896, guid: 267328501575d584b914ffbec4432653, type: 2}
+  model: {fileID: 1321372059925976, guid: 267328501575d584b914ffbec4432653, type: 2}

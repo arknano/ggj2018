@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyBehaviour : MonoBehaviour {
+public class EnemyController : MonoBehaviour {
 
     public ProjectileEnemySO enemyConfig;
+    public WeaponSO weaponConfig;
     public Transform weaponSpawn;
-    private Transform target;
 
+    private Transform target;
     private NavMeshAgent agent;
     private float lastShootTime;
 
@@ -46,10 +47,9 @@ public class EnemyBehaviour : MonoBehaviour {
     {
         if (distanceToTarget < enemyConfig.attackDistance)
         {
-            WeaponSO weapon = enemyConfig.weapon;
-            if (Time.time - lastShootTime >= weapon.reloadTime)
+            if (Time.time - lastShootTime >= weaponConfig.reloadTime)
             {
-                GameObject bullet = GameObject.Instantiate(weapon.projectile, weaponSpawn);
+                GameObject bullet = GameObject.Instantiate(weaponConfig.projectile, weaponSpawn);
                 bullet.transform.parent = null;
                 lastShootTime = Time.time;
             }

@@ -469,6 +469,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyConfig: {fileID: 11400000, guid: deb4d71bd5cfd9c4c8c674f3d4db485c, type: 2}
+  weaponConfig: {fileID: 0}
   weaponSpawn: {fileID: 4913461409702662}
 --- !u!114 &114457726618287628
 MonoBehaviour:
