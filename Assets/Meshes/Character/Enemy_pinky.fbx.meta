@@ -1,22 +1,28 @@
 fileFormatVersion: 2
-guid: 7480f0a52a6f72d4fa9adf9db3f3ed79
-timeCreated: 1516989972
+guid: d9f41b889b94aa142bd6852a256b1ee4
+timeCreated: 1516990751
 licenseType: Free
 ModelImporter:
   serializedVersion: 21
   fileIDToRecycleName:
-    100000: //RootNode
-    100002: geo1
-    100004: Pinky
-    400000: //RootNode
-    400002: geo1
-    400004: Pinky
-    2300000: geo1
-    2300002: Pinky
-    3300000: geo1
-    3300002: Pinky
+    100000: Disc
+    100002: //RootNode
+    100004: geo1
+    100006: Pinky 1
+    400000: Disc
+    400002: //RootNode
+    400004: geo1
+    400006: Pinky 1
+    2300000: Disc
+    2300002: geo1
+    2300004: Pinky 1
+    3300000: Disc
+    3300002: geo1
+    3300004: Pinky 1
     4300000: Pinky
     4300002: geo1
+    4300004: Disc
+    9500000: //RootNode
   materials:
     importMaterials: 1
     materialName: 0
@@ -86,7 +92,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 0
+  animationType: 2
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
