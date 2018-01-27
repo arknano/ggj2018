@@ -2391,7 +2391,7 @@ MonoBehaviour:
   - {fileID: 1119515590218696}
   - {fileID: 1858070466595948}
   - {fileID: 1482180020502076}
-  teleportBeacon: {fileID: 1938301282876576, guid: a39244d9d483fa243bec2bd27392b4df,
+  teleportBeacon: {fileID: 1406996316794072, guid: 881c230f68cc76a4887a82a36ea94922,
     type: 2}
 --- !u!114 &114968577116556074
 MonoBehaviour:
