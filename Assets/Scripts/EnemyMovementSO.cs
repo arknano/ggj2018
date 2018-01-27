@@ -9,4 +9,6 @@ public class EnemyMovementSO : ScriptableObject {
     public float sightDistance;
     public float attackDistance;
     public float stopApproachingDistance;
+    public bool canStrafe;
+    public float maxTimeBetweenMovementChange;
 }

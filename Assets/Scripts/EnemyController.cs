@@ -10,10 +10,20 @@ public class EnemyController : MonoBehaviour {
     public Transform weaponSpawn;
     public Transform mesh;
 
+    private enum MovementType
+    {
+        ForwardBack, Strafe
+    }
+
     private Transform target;
     private Vector3 moveTarget = Vector3.zero;
     private NavMeshAgent agent;
     private float lastShootTime;
+    private float lastMovementChangeTime;
+    private float nextMovementChangeTime;
+    private MovementType movementType = MovementType.Strafe;
+    private float strafeRadius;
+    private bool moveLeft = false;
 
 	// Use this for initialization
 	void Start () {
@@ -21,6 +31,8 @@ public class EnemyController : MonoBehaviour {
         agent.speed = movementConfig.speed;
         lastShootTime = Time.time;
         target = GameObject.FindGameObjectWithTag("Player").transform;
+        lastMovementChangeTime = Time.time;
+        nextMovementChangeTime = lastMovementChangeTime + movementConfig.maxTimeBetweenMovementChange;
 	}
 	
 	// Update is called once per frame
@@ -49,16 +61,63 @@ public class EnemyController : MonoBehaviour {
 
     void Move(float distanceToTarget)
     {
+        if (Time.time > nextMovementChangeTime) 
+        {
+            lastMovementChangeTime = Time.time;
+            movementType = Random.value > 0.5f ? MovementType.Strafe : MovementType.ForwardBack;
+            moveLeft = Random.value > 0.5f;
+            strafeRadius = (transform.position - target.position).magnitude;
+            nextMovementChangeTime = Time.time +
+                Random.Range(movementConfig.maxTimeBetweenMovementChange / 2,
+                movementConfig.maxTimeBetweenMovementChange);
+        }
+
+        if (!movementConfig.canStrafe)
+        {
+            movementType = MovementType.ForwardBack;
+        }
+
+        switch (movementType) {
+            case MovementType.ForwardBack:
+                MoveForwardBack(distanceToTarget);
+                break;
+            case MovementType.Strafe:
+                MoveStrafe(distanceToTarget);
+                break;
+        }
+    }
+
+    void MoveForwardBack(float distanceToTarget)
+    {
         if (distanceToTarget <= movementConfig.sightDistance)
         {
-            if (distanceToTarget >= movementConfig.stopApproachingDistance)
+            if (distanceToTarget < movementConfig.stopApproachingDistance - 1)
+            {
+                FleeFromPlayer();
+            } else
             {
                 MoveToPlayer();
             }
-            else
-            {
-                FleeFromPlayer();
-            }
+        }
+    }
+
+    void MoveStrafe(float distanceToTarget)
+    {
+        Vector3 fromPlayerDir = (transform.position - target.position).normalized;
+
+        float angle = 5 * (moveLeft ? 1 : -1);
+        Vector3 fromPlayerAngled = Quaternion.AngleAxis(angle, Vector3.up) * fromPlayerDir;
+        Vector3 strafeDirection = fromPlayerAngled - fromPlayerDir;
+        Vector3 strafeTo = transform.position + strafeDirection * 5;
+
+        Vector3 resultStrafeTo;
+        if (NavMeshTo(strafeTo, 5, out resultStrafeTo))
+        {
+            agent.destination = resultStrafeTo;
+        }
+        else
+        {
+            moveLeft = !moveLeft;
         }
     }
 
@@ -150,13 +209,23 @@ public class EnemyController : MonoBehaviour {
         float distance = movementConfig.stopApproachingDistance
                 - (target.position - transform.position).magnitude;
         Vector3 runTo = transform.position - (target.position - transform.position) * distance;
-
-        NavMeshHit hit;
-        int mask = 1 << NavMesh.GetNavMeshLayerFromName("Default");
-        if (NavMesh.SamplePosition(runTo, out hit, distance, mask)) {
-            Debug.DrawLine(transform.position, hit.position);
-            agent.destination = hit.position;
+        Vector3 resultRunTo;
+        if (NavMeshTo(runTo, distance, out resultRunTo)) {
+            agent.destination = resultRunTo;
             agent.isStopped = false;
         }
+    }
+
+    private bool NavMeshTo(Vector3 targetPoint, float dist, out Vector3 result)
+    {
+        NavMeshHit hit;
+        int mask = 1 << NavMesh.GetNavMeshLayerFromName("Default");
+        if (NavMesh.SamplePosition(targetPoint, out hit, dist, mask))
+        {
+            result = hit.position;
+            return true;
+        }
+        result = Vector3.zero;
+        return false;
     }
 }
