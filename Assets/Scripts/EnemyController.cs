@@ -11,6 +11,7 @@ public class EnemyController : MonoBehaviour {
     public Transform mesh;
 
     private Transform target;
+    private Vector3 moveTarget = Vector3.zero;
     private NavMeshAgent agent;
     private float lastShootTime;
 
@@ -26,17 +27,20 @@ public class EnemyController : MonoBehaviour {
 	void FixedUpdate () {
         float distanceToTarget = (target.position - transform.position).magnitude;
 
-        TryLookAtPlayer(distanceToTarget);
-        TryMoveToPlayer(distanceToTarget);
-        TryShoot(distanceToTarget);
+        bool newPositionFound = determineNewPlayerPosition(out moveTarget);
+        if (newPositionFound)
+        {
+            TryLookAtPlayer(distanceToTarget);
+            TryMoveToPlayer(distanceToTarget);
+            TryShoot(distanceToTarget);
+        }
     }
 
     void TryLookAtPlayer(float distanceToTarget)
     {
         if (distanceToTarget < movementConfig.sightDistance)
         {
-            Vector3 lookDir = target.position - transform.position;
-            lookDir.y = 0;
+            Vector3 lookDir = target.position - weaponSpawn.position;
             Quaternion targetRotation = Quaternion.LookRotation(lookDir, transform.up);
             mesh.transform.rotation = Quaternion.Lerp(mesh.transform.rotation, targetRotation,
                 Time.fixedDeltaTime * movementConfig.turnSpeed);
@@ -45,21 +49,18 @@ public class EnemyController : MonoBehaviour {
 
     void TryMoveToPlayer(float distanceToTarget)
     {
-        if (distanceToTarget < movementConfig.sightDistance)
+        if (distanceToTarget <= movementConfig.sightDistance &&
+            distanceToTarget >= movementConfig.stopApproachingDistance)
         {
-            agent.destination = target.position;
+            agent.destination = moveTarget;
             agent.speed = movementConfig.speed;
-        }
-        else
-        {
-            agent.isStopped = true;
-            agent.speed = movementConfig.speed;
+            agent.isStopped = false;
         }
     }
 
     void TryShoot(float distanceToTarget)
     {
-        if (weaponConfig != null && distanceToTarget < movementConfig.attackDistance)
+        if (weaponConfig != null && distanceToTarget <= movementConfig.attackDistance)
         {
             if (Time.time - lastShootTime >= weaponConfig.reloadTime)
             {
@@ -78,7 +79,10 @@ public class EnemyController : MonoBehaviour {
 
     void ShootProjectile()
     {
+        Vector3 random = new Vector3(Random.insideUnitCircle.x, Random.insideUnitCircle.y, 0)
+                * weaponConfig.accuracyRadius;
         GameObject bullet = GameObject.Instantiate(weaponConfig.bullet, weaponSpawn);
+        bullet.transform.Rotate(random);
         ProjectileController projectileController = bullet.GetComponent<ProjectileController>();
         projectileController.speed = weaponConfig.projectileSpeed;
         projectileController.damage = weaponConfig.attackDamage;
@@ -87,12 +91,17 @@ public class EnemyController : MonoBehaviour {
 
     void ShootHitscan()
     {
-        Vector3 random = new Vector3(Random.insideUnitCircle.x, Random.insideUnitCircle.y, 0);
-        Vector3 laserDir = weaponSpawn.forward + random * weaponConfig.accuracyRadius;
+        Vector3 random = new Vector3(Random.insideUnitCircle.x, Random.insideUnitCircle.y, 0)
+                * weaponConfig.accuracyRadius;
+        Vector3 laserDir = weaponSpawn.forward + random;
         Vector3 laserStart = weaponSpawn.position;
-        Vector3 laserEnd = laserStart + laserDir * movementConfig.attackDistance;
+        Vector3 laserEnd = laserStart + laserDir * 2000;
 
-        Debug.DrawLine(laserStart, laserEnd);
+        RaycastHit hit;
+        if (Physics.Raycast(weaponSpawn.position, laserDir, out hit))
+        {
+            laserEnd = hit.point;
+        }
 
         if (weaponConfig.bullet != null)
         {
@@ -101,17 +110,28 @@ public class EnemyController : MonoBehaviour {
             laserController.positions = new Vector3[] { laserStart, laserEnd };
         }
 
-        RaycastHit hit;
         if (Physics.Raycast(laserStart, laserDir, out hit, movementConfig.attackDistance))
         {
-            Debug.Log("Hit");
-
             if (hit.collider.gameObject.tag == "Player")
             {
-                Debug.Log("Hit player");
                 target.GetComponent<PlayerHealth>().DealDamage(weaponConfig.attackDamage);
             }
         }
+    }
 
+    bool determineNewPlayerPosition(out Vector3 moveTarget)
+    {
+        RaycastHit hit;
+        Vector3 rayDir = (target.position - weaponSpawn.position).normalized;
+        if (Physics.Raycast(weaponSpawn.position, rayDir.normalized, out hit))
+        {
+            if (hit.collider.gameObject.tag == "Player")
+            {
+                moveTarget = target.position;
+                return true;
+            }
+        }
+        moveTarget = Vector3.zero;
+        return false;
     }
 }
