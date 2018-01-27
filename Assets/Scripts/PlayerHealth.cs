@@ -35,10 +35,6 @@ public class PlayerHealth : MonoBehaviour
 
     void Die()
     {
-#if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false;
-#else
-        Application.Quit();
-#endif
+        GetComponent<PlayerDash>().DeathDash();
     }
 }
