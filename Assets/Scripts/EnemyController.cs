@@ -45,10 +45,13 @@ public class EnemyController : MonoBehaviour {
 
     void TryMoveToPlayer(float distanceToTarget)
     {
-        if (distanceToTarget < movementConfig.sightDistance)
+        Debug.Log("Distance si " + distanceToTarget);
+        if (distanceToTarget <= movementConfig.sightDistance &&
+            distanceToTarget >= movementConfig.stopApproachingDistance)
         {
             agent.destination = target.position;
             agent.speed = movementConfig.speed;
+            agent.isStopped = false;
         }
         else
         {
@@ -59,7 +62,7 @@ public class EnemyController : MonoBehaviour {
 
     void TryShoot(float distanceToTarget)
     {
-        if (weaponConfig != null && distanceToTarget < movementConfig.attackDistance)
+        if (weaponConfig != null && distanceToTarget <= movementConfig.attackDistance)
         {
             if (Time.time - lastShootTime >= weaponConfig.reloadTime)
             {

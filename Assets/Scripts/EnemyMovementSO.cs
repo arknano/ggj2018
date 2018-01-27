@@ -8,4 +8,5 @@ public class EnemyMovementSO : ScriptableObject {
     public float turnSpeed;
     public float sightDistance;
     public float attackDistance;
+    public float stopApproachingDistance;
 }
