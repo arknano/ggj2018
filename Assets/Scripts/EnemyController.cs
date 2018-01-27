@@ -40,8 +40,7 @@ public class EnemyController : MonoBehaviour {
     {
         if (distanceToTarget < movementConfig.sightDistance)
         {
-            Vector3 lookDir = target.position - transform.position;
-            lookDir.y = 0;
+            Vector3 lookDir = target.position - weaponSpawn.position;
             Quaternion targetRotation = Quaternion.LookRotation(lookDir, transform.up);
             mesh.transform.rotation = Quaternion.Lerp(mesh.transform.rotation, targetRotation,
                 Time.fixedDeltaTime * movementConfig.turnSpeed);
