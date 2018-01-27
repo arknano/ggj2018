@@ -45,7 +45,6 @@ public class EnemyController : MonoBehaviour {
 
     void TryMoveToPlayer(float distanceToTarget)
     {
-        Debug.Log("Distance si " + distanceToTarget);
         if (distanceToTarget <= movementConfig.sightDistance &&
             distanceToTarget >= movementConfig.stopApproachingDistance)
         {
