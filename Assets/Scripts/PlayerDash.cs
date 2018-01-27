@@ -20,6 +20,8 @@ public class PlayerDash : MonoBehaviour {
     private Vector3 _dashPoint;
     private FirstPersonController FPSController;
 
+    public GameObject teleportBeacon;
+    private GameObject teleportBeaconInstance;
     private LineRenderer teleportBeamRenderer;
 
     void Start ()
@@ -29,6 +31,9 @@ public class PlayerDash : MonoBehaviour {
 
         teleportBeamRenderer = GetComponent<LineRenderer>();
         teleportBeamRenderer.enabled = false;
+        teleportBeaconInstance = Instantiate(teleportBeacon);
+        teleportBeaconInstance.SetActive(false);
+        TeleportSO.CanTeleport = false;
     }
 
 	void Update () {
@@ -48,12 +53,13 @@ public class PlayerDash : MonoBehaviour {
 
     void Shoot()
     {
+        teleportBeaconInstance.SetActive(false);
         var teleporter = Instantiate(TeleporterPrefab, Barrel.position, Barrel.rotation);
     }
 
     void Dash()
     {
-       if (TeleportSO.CanTeleport)
+        if (TeleportSO.CanTeleport)
         {
             TeleportSO.CanTeleport = false;
             StartCoroutine(Dashing());
@@ -64,6 +70,7 @@ public class PlayerDash : MonoBehaviour {
     IEnumerator Dashing()
     {
         teleportBeamRenderer.enabled = false;
+        teleportBeaconInstance.SetActive(false);
 
         for (int i = 0; i < DashTrails.Length; i++)
         {
@@ -96,6 +103,9 @@ public class PlayerDash : MonoBehaviour {
         {
             Vector3 end = TeleportSO.TeleportPosition;
             end.y -= 1;
+
+            teleportBeaconInstance.transform.position = TeleportSO.TeleportPosition;
+            teleportBeaconInstance.SetActive(true);
             teleportBeamRenderer.enabled = true;
             teleportBeamRenderer.SetPositions(new Vector3[] { transform.position, end });
             teleportBeamRenderer.positionCount = 2;
