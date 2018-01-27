@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityStandardAssets.Characters.FirstPerson;
 using UnityStandardAssets.Utility;
 using UnityEngine.Rendering.PostProcessing;
+using UnityEngine.SceneManagement;
 
 public class PlayerDash : MonoBehaviour {
 
@@ -112,5 +113,22 @@ public class PlayerDash : MonoBehaviour {
             teleportBeaconInstance.SetActive(false);
             teleportBeamRenderer.enabled = false;
         }
+    }
+
+    public void DeathDash()
+    {
+        StartCoroutine(Death());
+    }
+
+    IEnumerator Death()
+    {
+        PlayerMesh.transform.parent = null;
+        TeleportSO.IsTeleporting = true;
+        FPSController.enabled = false;
+        StartCoroutine(FOVKick.FOVKickUp());
+        LeanTween.move(gameObject, transform.position + (-transform.forward * 5) , DashSpeed);
+        yield return new WaitForSeconds(5);
+        GetComponent<SceneChange>().ChangeScene(SceneManager.GetActiveScene().name);
+        GetComponent<CharacterController>().enabled = false;
     }
 }
