@@ -87,15 +87,16 @@ public class EnemyController : MonoBehaviour {
 
     void ShootHitscan()
     {
-        Vector3 laserDir = mesh.forward;
-        Vector3 laserStart = mesh.position;
+        Vector3 random = new Vector3(Random.insideUnitCircle.x, Random.insideUnitCircle.y, 0);
+        Vector3 laserDir = weaponSpawn.forward + random * weaponConfig.accuracyRadius;
+        Vector3 laserStart = weaponSpawn.position;
         Vector3 laserEnd = laserStart + laserDir * movementConfig.attackDistance;
 
         Debug.DrawLine(laserStart, laserEnd);
 
         if (weaponConfig.bullet != null)
         {
-            GameObject laser = GameObject.Instantiate(weaponConfig.bullet, mesh.transform);
+            GameObject laser = GameObject.Instantiate(weaponConfig.bullet, weaponSpawn.position, weaponSpawn.rotation);
             LaserController laserController = laser.GetComponent<LaserController>();
             laserController.positions = new Vector3[] { laserStart, laserEnd };
         }
