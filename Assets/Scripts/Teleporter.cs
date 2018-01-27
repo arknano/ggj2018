@@ -24,6 +24,7 @@ public class Teleporter : MonoBehaviour {
             _rb.GetComponent<Collider>().enabled = false;
             TeleportSO.CanTeleport = true;
             TeleportSO.TeleportPosition = transform.position + (Vector3.up * 1);
+            Destroy(gameObject);
         }
     }
 }

@@ -53,12 +53,14 @@ public class PlayerDash : MonoBehaviour {
 
     void Shoot()
     {
-        teleportBeaconInstance.SetActive(false);
-        var teleporter = Instantiate(TeleporterPrefab, Barrel.position, Barrel.rotation);
+        Instantiate(TeleporterPrefab, Barrel.position, Barrel.rotation);
     }
 
     void Dash()
     {
+        teleportBeamRenderer.enabled = false;
+        teleportBeaconInstance.SetActive(false);
+
         if (TeleportSO.CanTeleport)
         {
             TeleportSO.CanTeleport = false;
@@ -69,9 +71,6 @@ public class PlayerDash : MonoBehaviour {
 
     IEnumerator Dashing()
     {
-        teleportBeamRenderer.enabled = false;
-        teleportBeaconInstance.SetActive(false);
-
         for (int i = 0; i < DashTrails.Length; i++)
         {
             DashTrails[i].SetActive(true);
@@ -99,7 +98,7 @@ public class PlayerDash : MonoBehaviour {
 
     private void TryShowTeleportIndicator()
     {
-        if (TeleportSO.CanTeleport && teleportBeamRenderer != null)
+        if (TeleportSO.CanTeleport)
         {
             Vector3 end = TeleportSO.TeleportPosition;
             end.y -= 1;
@@ -109,6 +108,9 @@ public class PlayerDash : MonoBehaviour {
             teleportBeamRenderer.enabled = true;
             teleportBeamRenderer.SetPositions(new Vector3[] { transform.position, end });
             teleportBeamRenderer.positionCount = 2;
+        } else {
+            teleportBeaconInstance.SetActive(false);
+            teleportBeamRenderer.enabled = false;
         }
     }
 }
