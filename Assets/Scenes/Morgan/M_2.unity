@@ -7395,7 +7395,7 @@ GameObject:
   - component: {fileID: 357706234}
   m_Layer: 0
   m_Name: Stairs (2)
-  m_TagString: Untagged
+  m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 127
@@ -13911,7 +13911,7 @@ GameObject:
   - component: {fileID: 416136807}
   m_Layer: 0
   m_Name: Plane
-  m_TagString: Untagged
+  m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 127
@@ -15813,7 +15813,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1874686515704816, guid: 3619d6d21eece874381005d6987ef61c, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3619d6d21eece874381005d6987ef61c, type: 2}
@@ -20700,7 +20700,7 @@ GameObject:
   - component: {fileID: 658488938}
   m_Layer: 0
   m_Name: Stairs (1)
-  m_TagString: Untagged
+  m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 127
@@ -36421,7 +36421,7 @@ GameObject:
   - component: {fileID: 1245040801}
   m_Layer: 0
   m_Name: Plane (1)
-  m_TagString: Untagged
+  m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 127
@@ -51568,7 +51568,7 @@ GameObject:
   - component: {fileID: 1750562772}
   m_Layer: 0
   m_Name: Stairs
-  m_TagString: Untagged
+  m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 127
@@ -66563,7 +66563,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: -1835797696, guid: 319c866c476263b4b9705bdd2cf0f8cf, type: 3}
+  - {fileID: 2100000, guid: 8b553801ff8210e46b829f5ea93348bd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
