@@ -40,8 +40,7 @@ public class EnemyController : MonoBehaviour {
     {
         if (distanceToTarget < movementConfig.sightDistance)
         {
-            Vector3 lookDir = target.position - transform.position;
-            lookDir.y = 0;
+            Vector3 lookDir = target.position - weaponSpawn.position;
             Quaternion targetRotation = Quaternion.LookRotation(lookDir, transform.up);
             mesh.transform.rotation = Quaternion.Lerp(mesh.transform.rotation, targetRotation,
                 Time.fixedDeltaTime * movementConfig.turnSpeed);
@@ -96,9 +95,13 @@ public class EnemyController : MonoBehaviour {
                 * weaponConfig.accuracyRadius;
         Vector3 laserDir = weaponSpawn.forward + random;
         Vector3 laserStart = weaponSpawn.position;
-        Vector3 laserEnd = laserStart + laserDir * movementConfig.attackDistance;
+        Vector3 laserEnd = laserStart + laserDir * 2000;
 
-        Debug.DrawLine(laserStart, laserEnd);
+        RaycastHit hit;
+        if (Physics.Raycast(weaponSpawn.position, laserDir, out hit))
+        {
+            laserEnd = hit.point;
+        }
 
         if (weaponConfig.bullet != null)
         {
@@ -107,7 +110,6 @@ public class EnemyController : MonoBehaviour {
             laserController.positions = new Vector3[] { laserStart, laserEnd };
         }
 
-        RaycastHit hit;
         if (Physics.Raycast(laserStart, laserDir, out hit, movementConfig.attackDistance))
         {
             if (hit.collider.gameObject.tag == "Player")
