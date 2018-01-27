@@ -45,10 +45,12 @@ public class EnemyController : MonoBehaviour {
 
     void TryMoveToPlayer(float distanceToTarget)
     {
-        if (distanceToTarget < movementConfig.sightDistance)
+        if (distanceToTarget <= movementConfig.sightDistance &&
+            distanceToTarget >= movementConfig.stopApproachingDistance)
         {
             agent.destination = target.position;
             agent.speed = movementConfig.speed;
+            agent.isStopped = false;
         }
         else
         {
@@ -59,17 +61,60 @@ public class EnemyController : MonoBehaviour {
 
     void TryShoot(float distanceToTarget)
     {
-        if (weaponConfig != null && distanceToTarget < movementConfig.attackDistance)
+        if (weaponConfig != null && distanceToTarget <= movementConfig.attackDistance)
         {
             if (Time.time - lastShootTime >= weaponConfig.reloadTime)
             {
-                GameObject bullet = GameObject.Instantiate(weaponConfig.projectile, weaponSpawn);
-                ProjectileController projectileController = bullet.GetComponent<ProjectileController>();
-                projectileController.speed = weaponConfig.projectileSpeed;
-                projectileController.damage = weaponConfig.projectileDamage;
-                bullet.transform.parent = null;
                 lastShootTime = Time.time;
+                if (weaponConfig.type == EnemyWeaponSO.Type.Projectile)
+                {
+                    ShootProjectile();
+                }
+                else if (weaponConfig.type == EnemyWeaponSO.Type.HitScan)
+                {
+                    ShootHitscan();
+                }
             }
         }
+    }
+
+    void ShootProjectile()
+    {
+        Vector3 random = new Vector3(Random.insideUnitCircle.x, Random.insideUnitCircle.y, 0)
+                * weaponConfig.accuracyRadius;
+        GameObject bullet = GameObject.Instantiate(weaponConfig.bullet, weaponSpawn);
+        bullet.transform.Rotate(random);
+        ProjectileController projectileController = bullet.GetComponent<ProjectileController>();
+        projectileController.speed = weaponConfig.projectileSpeed;
+        projectileController.damage = weaponConfig.attackDamage;
+        bullet.transform.parent = null;
+    }
+
+    void ShootHitscan()
+    {
+        Vector3 random = new Vector3(Random.insideUnitCircle.x, Random.insideUnitCircle.y, 0)
+                * weaponConfig.accuracyRadius;
+        Vector3 laserDir = weaponSpawn.forward + random;
+        Vector3 laserStart = weaponSpawn.position;
+        Vector3 laserEnd = laserStart + laserDir * movementConfig.attackDistance;
+
+        Debug.DrawLine(laserStart, laserEnd);
+
+        if (weaponConfig.bullet != null)
+        {
+            GameObject laser = GameObject.Instantiate(weaponConfig.bullet, weaponSpawn.position, weaponSpawn.rotation);
+            LaserController laserController = laser.GetComponent<LaserController>();
+            laserController.positions = new Vector3[] { laserStart, laserEnd };
+        }
+
+        RaycastHit hit;
+        if (Physics.Raycast(laserStart, laserDir, out hit, movementConfig.attackDistance))
+        {
+            if (hit.collider.gameObject.tag == "Player")
+            {
+                target.GetComponent<PlayerHealth>().DealDamage(weaponConfig.attackDamage);
+            }
+        }
+
     }
 }

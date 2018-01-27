@@ -14,13 +14,9 @@ public class EnemyWeaponSO : ScriptableObject {
     public Type type;
     public float reloadTime;
     public float accuracyRadius;
-
-    [Header(header: "Hitscan Only")]
-    public float hitscanDistance;
-    public float hitscanDamage;
+    public GameObject bullet;
+    public float attackDamage;
 
     [Header(header: "Projectile Only")]
     public float projectileSpeed;
-    public float projectileDamage;
-    public GameObject projectile;
 }

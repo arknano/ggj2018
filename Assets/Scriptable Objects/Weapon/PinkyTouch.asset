@@ -8,11 +8,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d64625842f5b70949aa092919ab12049, type: 3}
-  m_Name: Grunt
+  m_Script: {fileID: 11500000, guid: 738bc129bdeac594da1d703bf959e867, type: 3}
+  m_Name: PinkyTouch
   m_EditorClassIdentifier: 
-  speed: 3
-  turnSpeed: 3
-  sightDistance: 50
-  attackDistance: 30
-  stopApproachingDistance: 10
+  type: 1
+  reloadTime: 0.5
+  accuracyRadius: 0
+  bullet: {fileID: 0}
+  attackDamage: 10
+  projectileSpeed: 30
