@@ -15,7 +15,7 @@ public class PlayerDash : MonoBehaviour {
     public TeleportSO TeleportSO;
     public FOVKick FOVKick = new FOVKick();
     public PostProcessVolume PPBlur;
-    public PostProcessVolume PPBlur2;
+    public GameObject[] DashTrails;
     private bool _isDashing;
     private Vector3 _dashPoint;
     private FirstPersonController FPSController;
@@ -56,6 +56,10 @@ public class PlayerDash : MonoBehaviour {
 
     IEnumerator Dashing()
     {
+        for (int i = 0; i < DashTrails.Length; i++)
+        {
+            DashTrails[i].SetActive(true);
+        }
         LeanTween.value(gameObject, 0, 1, DashSpeed).setOnUpdate((float val) => { PPBlur.weight = val; });
         StartCoroutine(FOVKick.FOVKickUp());
         FPSController.enabled = false;
@@ -70,5 +74,9 @@ public class PlayerDash : MonoBehaviour {
         FPSController.enabled = true;
         StartCoroutine(FOVKick.FOVKickDown());
         LeanTween.value(gameObject, 1, 0, DashSpeed).setOnUpdate((float val) => { PPBlur.weight = val; });
+        for (int i = 0; i < DashTrails.Length; i++)
+        {
+            DashTrails[i].SetActive(false);
+        }
     }
 }
