@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d64625842f5b70949aa092919ab12049, type: 3}
   m_Name: Grunt
   m_EditorClassIdentifier: 
-  speed: 6
-  turnSpeed: 6
+  speed: 3
+  turnSpeed: 3
   sightDistance: 50
   attackDistance: 30
