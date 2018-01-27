@@ -78,7 +78,10 @@ public class EnemyController : MonoBehaviour {
 
     void ShootProjectile()
     {
+        Vector3 random = new Vector3(Random.insideUnitCircle.x, Random.insideUnitCircle.y, 0)
+                * weaponConfig.accuracyRadius;
         GameObject bullet = GameObject.Instantiate(weaponConfig.bullet, weaponSpawn);
+        bullet.transform.Rotate(random);
         ProjectileController projectileController = bullet.GetComponent<ProjectileController>();
         projectileController.speed = weaponConfig.projectileSpeed;
         projectileController.damage = weaponConfig.attackDamage;
@@ -87,8 +90,9 @@ public class EnemyController : MonoBehaviour {
 
     void ShootHitscan()
     {
-        Vector3 random = new Vector3(Random.insideUnitCircle.x, Random.insideUnitCircle.y, 0);
-        Vector3 laserDir = weaponSpawn.forward + random * weaponConfig.accuracyRadius;
+        Vector3 random = new Vector3(Random.insideUnitCircle.x, Random.insideUnitCircle.y, 0)
+                * weaponConfig.accuracyRadius;
+        Vector3 laserDir = weaponSpawn.forward + random;
         Vector3 laserStart = weaponSpawn.position;
         Vector3 laserEnd = laserStart + laserDir * movementConfig.attackDistance;
 
@@ -104,11 +108,8 @@ public class EnemyController : MonoBehaviour {
         RaycastHit hit;
         if (Physics.Raycast(laserStart, laserDir, out hit, movementConfig.attackDistance))
         {
-            Debug.Log("Hit");
-
             if (hit.collider.gameObject.tag == "Player")
             {
-                Debug.Log("Hit player");
                 target.GetComponent<PlayerHealth>().DealDamage(weaponConfig.attackDamage);
             }
         }
