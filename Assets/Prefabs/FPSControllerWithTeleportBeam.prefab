@@ -566,7 +566,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1874686515704816}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.8509665, y: 1, z: -17.77408}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4537388861484226}
@@ -3037,6 +3037,8 @@ MonoBehaviour:
   - {fileID: 1921061501042338}
   - {fileID: 1828654947407258}
   - {fileID: 1168550607741008}
+  teleportBeacon: {fileID: 1938301282876576, guid: a39244d9d483fa243bec2bd27392b4df,
+    type: 2}
 --- !u!114 &114941381515806698
 MonoBehaviour:
   m_ObjectHideFlags: 1
