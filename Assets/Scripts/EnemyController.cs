@@ -7,7 +7,7 @@ public class EnemyController : MonoBehaviour {
 
     public EnemyMovementSO movementConfig;
     public EnemyWeaponSO weaponConfig;
-    public Transform weaponSpawn;
+    public Transform[] weaponSpawns;
     public Transform mesh;
 
     private enum MovementType
@@ -53,7 +53,7 @@ public class EnemyController : MonoBehaviour {
     {
         if (distanceToTarget < movementConfig.sightDistance)
         {
-            Vector3 lookDir = lookTarget - weaponSpawn.position;
+            Vector3 lookDir = lookTarget - weaponSpawns[0].position;
             Quaternion targetRotation = Quaternion.LookRotation(lookDir, transform.up);
             mesh.transform.rotation = Quaternion.Lerp(mesh.transform.rotation, targetRotation,
                 Time.fixedDeltaTime * movementConfig.turnSpeed);
@@ -150,33 +150,35 @@ public class EnemyController : MonoBehaviour {
 
     void ShootProjectile()
     {
-        Vector3 random = new Vector3(Random.insideUnitCircle.x, Random.insideUnitCircle.y, 0)
-                * weaponConfig.accuracyRadius;
-        GameObject bullet = GameObject.Instantiate(weaponConfig.bullet, weaponSpawn);
-        bullet.transform.Rotate(random);
-        ProjectileController projectileController = bullet.GetComponent<ProjectileController>();
-        projectileController.speed = weaponConfig.projectileSpeed;
-        projectileController.damage = weaponConfig.attackDamage;
-        bullet.transform.parent = null;
+        foreach (Transform weaponSpawn in weaponSpawns) {
+            Vector3 random = new Vector3(Random.insideUnitCircle.x, Random.insideUnitCircle.y, 0)
+                    * weaponConfig.accuracyRadius;
+            GameObject bullet = GameObject.Instantiate(weaponConfig.bullet, weaponSpawn);
+            bullet.transform.Rotate(random);
+            ProjectileController projectileController = bullet.GetComponent<ProjectileController>();
+            projectileController.speed = weaponConfig.projectileSpeed;
+            projectileController.damage = weaponConfig.attackDamage;
+            bullet.transform.parent = null;
+        }
     }
 
     void ShootHitscan()
     {
         Vector3 random = new Vector3(Random.insideUnitCircle.x, Random.insideUnitCircle.y, 0)
                 * weaponConfig.accuracyRadius;
-        Vector3 laserDir = weaponSpawn.forward + random;
-        Vector3 laserStart = weaponSpawn.position;
+        Vector3 laserDir = weaponSpawns[0].forward + random;
+        Vector3 laserStart = weaponSpawns[0].position;
         Vector3 laserEnd = laserStart + laserDir * 2000;
 
         RaycastHit hit;
-        if (Physics.Raycast(weaponSpawn.position, laserDir, out hit))
+        if (Physics.Raycast(weaponSpawns[0].position, laserDir, out hit))
         {
             laserEnd = hit.point;
         }
 
         if (weaponConfig.bullet != null)
         {
-            GameObject laser = GameObject.Instantiate(weaponConfig.bullet, weaponSpawn.position, weaponSpawn.rotation);
+            GameObject laser = GameObject.Instantiate(weaponConfig.bullet, weaponSpawns[0].position, weaponSpawns[0].rotation);
             LaserController laserController = laser.GetComponent<LaserController>();
             laserController.positions = new Vector3[] { laserStart, laserEnd };
         }
@@ -193,8 +195,8 @@ public class EnemyController : MonoBehaviour {
     bool DetermineNewPlayerPosition(out Vector3 moveTarget)
     {
         RaycastHit hit;
-        Vector3 rayDir = (target.position - weaponSpawn.position).normalized;
-        if (Physics.Raycast(weaponSpawn.position, rayDir.normalized, out hit))
+        Vector3 rayDir = (target.position - weaponSpawns[0].position).normalized;
+        if (Physics.Raycast(weaponSpawns[0].position, rayDir.normalized, out hit))
         {
             if (hit.collider.gameObject.tag == "Player")
             {
