@@ -210,7 +210,7 @@ GameObject:
   - component: {fileID: 114178043974317198}
   - component: {fileID: 225723928836421138}
   m_Layer: 10
-  m_Name: Image (2)
+  m_Name: WhiteOut
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -550,7 +550,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1783854503691842}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.989891, y: 2.0550675, z: 1}
+  m_LocalPosition: {x: 5, y: 2, z: -18}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4920382504022916}
@@ -3038,10 +3038,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sharedProfile: {fileID: 11400000, guid: 18034498af0e51941ac4dedb50c59fb8, type: 2}
+  sharedProfile: {fileID: 11400000, guid: 6f7df637703c1494192d5bb7ae2fc662, type: 2}
   isGlobal: 1
   blendDistance: 0
-  weight: 0
+  weight: 1
   priority: 1
 --- !u!114 &114763693954568510
 MonoBehaviour:
@@ -3086,9 +3086,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be42e4a49d0889443af5ba7cf4ecc533, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FadeTime: 0
-  PPBloom: {fileID: 0}
-  WhiteOut: {fileID: 0}
+  FadeTime: 1
+  PPBloom: {fileID: 114609791994763994}
+  WhiteOut: {fileID: 225723928836421138}
 --- !u!114 &114952862071447716
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3387,7 +3387,7 @@ CanvasGroup:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1281580947912418}
   m_Enabled: 1
-  m_Alpha: 0
+  m_Alpha: 1
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
