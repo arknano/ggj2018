@@ -1,0 +1,164 @@
+fileFormatVersion: 2
+guid: 3d6457e0943aace4cac1686ab0647d8e
+timeCreated: 1517056341
+licenseType: Free
+ModelImporter:
+  serializedVersion: 21
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Shattered_MC:Object_Merge1
+    100004: Shattered_MC:Object_Merge10
+    100006: Shattered_MC:Object_Merge11
+    100008: Shattered_MC:Object_Merge12
+    100010: Shattered_MC:Object_Merge13
+    100012: Shattered_MC:Object_Merge14
+    100014: Shattered_MC:Object_Merge15
+    100016: Shattered_MC:Object_Merge16
+    100018: Shattered_MC:Object_Merge2
+    100020: Shattered_MC:Object_Merge3
+    100022: Shattered_MC:Object_Merge4
+    100024: Shattered_MC:Object_Merge5
+    100026: Shattered_MC:Object_Merge6
+    100028: Shattered_MC:Object_Merge7
+    100030: Shattered_MC:Object_Merge8
+    100032: Shattered_MC:Object_Merge9
+    400000: //RootNode
+    400002: Shattered_MC:Object_Merge1
+    400004: Shattered_MC:Object_Merge10
+    400006: Shattered_MC:Object_Merge11
+    400008: Shattered_MC:Object_Merge12
+    400010: Shattered_MC:Object_Merge13
+    400012: Shattered_MC:Object_Merge14
+    400014: Shattered_MC:Object_Merge15
+    400016: Shattered_MC:Object_Merge16
+    400018: Shattered_MC:Object_Merge2
+    400020: Shattered_MC:Object_Merge3
+    400022: Shattered_MC:Object_Merge4
+    400024: Shattered_MC:Object_Merge5
+    400026: Shattered_MC:Object_Merge6
+    400028: Shattered_MC:Object_Merge7
+    400030: Shattered_MC:Object_Merge8
+    400032: Shattered_MC:Object_Merge9
+    2300000: Shattered_MC:Object_Merge1
+    2300002: Shattered_MC:Object_Merge10
+    2300004: Shattered_MC:Object_Merge11
+    2300006: Shattered_MC:Object_Merge12
+    2300008: Shattered_MC:Object_Merge13
+    2300010: Shattered_MC:Object_Merge14
+    2300012: Shattered_MC:Object_Merge15
+    2300014: Shattered_MC:Object_Merge16
+    2300016: Shattered_MC:Object_Merge2
+    2300018: Shattered_MC:Object_Merge3
+    2300020: Shattered_MC:Object_Merge4
+    2300022: Shattered_MC:Object_Merge5
+    2300024: Shattered_MC:Object_Merge6
+    2300026: Shattered_MC:Object_Merge7
+    2300028: Shattered_MC:Object_Merge8
+    2300030: Shattered_MC:Object_Merge9
+    3300000: Shattered_MC:Object_Merge1
+    3300002: Shattered_MC:Object_Merge10
+    3300004: Shattered_MC:Object_Merge11
+    3300006: Shattered_MC:Object_Merge12
+    3300008: Shattered_MC:Object_Merge13
+    3300010: Shattered_MC:Object_Merge14
+    3300012: Shattered_MC:Object_Merge15
+    3300014: Shattered_MC:Object_Merge16
+    3300016: Shattered_MC:Object_Merge2
+    3300018: Shattered_MC:Object_Merge3
+    3300020: Shattered_MC:Object_Merge4
+    3300022: Shattered_MC:Object_Merge5
+    3300024: Shattered_MC:Object_Merge6
+    3300026: Shattered_MC:Object_Merge7
+    3300028: Shattered_MC:Object_Merge8
+    3300030: Shattered_MC:Object_Merge9
+    4300000: Shattered_MC:Object_Merge1
+    4300002: Shattered_MC:Object_Merge10
+    4300004: Shattered_MC:Object_Merge11
+    4300006: Shattered_MC:Object_Merge12
+    4300008: Shattered_MC:Object_Merge13
+    4300010: Shattered_MC:Object_Merge14
+    4300012: Shattered_MC:Object_Merge15
+    4300014: Shattered_MC:Object_Merge16
+    4300016: Shattered_MC:Object_Merge2
+    4300018: Shattered_MC:Object_Merge3
+    4300020: Shattered_MC:Object_Merge4
+    4300022: Shattered_MC:Object_Merge5
+    4300024: Shattered_MC:Object_Merge6
+    4300026: Shattered_MC:Object_Merge7
+    4300028: Shattered_MC:Object_Merge8
+    4300030: Shattered_MC:Object_Merge9
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

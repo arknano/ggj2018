@@ -16,3 +16,5 @@ MonoBehaviour:
   sightDistance: 20
   attackDistance: 15
   stopApproachingDistance: 5
+  canStrafe: 1
+  maxTimeBetweenMovementChange: 4
