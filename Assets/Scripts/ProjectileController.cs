@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class ProjectileController : MonoBehaviour {
 
-    public ProjectileSO projectileConfig;
+    public float damage;
+    public float speed;
 
     void Start () {
         Rigidbody rigidbody = GetComponent<Rigidbody>();
-        rigidbody.velocity = projectileConfig.speed * transform.forward;
+        rigidbody.velocity = speed * transform.forward;
 	}
 
     private void OnCollisionEnter(Collision collision)
@@ -17,7 +18,7 @@ public class ProjectileController : MonoBehaviour {
         {
             if (collision.gameObject.GetComponent<PlayerHealth>())
             {
-                collision.gameObject.GetComponent<PlayerHealth>().DealDamage(projectileConfig.damage);
+                collision.gameObject.GetComponent<PlayerHealth>().DealDamage(damage);
                 Destroy(gameObject);
             }
         }

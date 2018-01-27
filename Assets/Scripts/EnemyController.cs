@@ -36,8 +36,9 @@ public class EnemyController : MonoBehaviour {
         if (distanceToTarget < movementConfig.sightDistance)
         {
             Vector3 lookDir = target.position - transform.position;
+            lookDir.y = 0;
             Quaternion targetRotation = Quaternion.LookRotation(lookDir, transform.up);
-            transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation,
+            mesh.transform.rotation = Quaternion.Lerp(mesh.transform.rotation, targetRotation,
                 Time.fixedDeltaTime * movementConfig.turnSpeed);
         }
     }
@@ -58,11 +59,14 @@ public class EnemyController : MonoBehaviour {
 
     void TryShoot(float distanceToTarget)
     {
-        if (distanceToTarget < movementConfig.attackDistance)
+        if (weaponConfig != null && distanceToTarget < movementConfig.attackDistance)
         {
             if (Time.time - lastShootTime >= weaponConfig.reloadTime)
             {
                 GameObject bullet = GameObject.Instantiate(weaponConfig.projectile, weaponSpawn);
+                ProjectileController projectileController = bullet.GetComponent<ProjectileController>();
+                projectileController.speed = weaponConfig.projectileSpeed;
+                projectileController.damage = weaponConfig.projectileDamage;
                 bullet.transform.parent = null;
                 lastShootTime = Time.time;
             }

@@ -20,5 +20,7 @@ public class EnemyWeaponSO : ScriptableObject {
     public float hitscanDamage;
 
     [Header(header: "Projectile Only")]
+    public float projectileSpeed;
+    public float projectileDamage;
     public GameObject projectile;
 }
