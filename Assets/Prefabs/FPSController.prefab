@@ -528,8 +528,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1783854503691842}
-  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0.0000002533197}
-  m_LocalPosition: {x: 0.6882596, y: 1.51, z: 7.3829803}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 5, y: 2, z: -18}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4920382504022916}
@@ -889,7 +889,7 @@ Camera:
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
   m_TargetEye: 3
-  m_HDR: 0
+  m_HDR: 1
   m_AllowMSAA: 0
   m_ForceIntoRT: 1
   m_OcclusionCulling: 1
@@ -2730,8 +2730,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_IsWalking: 0
-  m_WalkSpeed: 5
-  m_RunSpeed: 10
+  m_WalkSpeed: 10
+  m_RunSpeed: 15
   m_RunstepLenghten: 0.7
   m_JumpSpeed: 15
   m_StickToGroundForce: 10
