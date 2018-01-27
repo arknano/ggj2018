@@ -1,81 +1,37 @@
 fileFormatVersion: 2
-guid: d9f41b889b94aa142bd6852a256b1ee4
-timeCreated: 1516990751
+guid: d1f8e6174db753a4bb745cb87e2a7073
+timeCreated: 1517007461
 licenseType: Free
 ModelImporter:
   serializedVersion: 21
   fileIDToRecycleName:
-    100000: Disc
+    100000: Body1
     100002: //RootNode
-    100004: geo1
-    100006: Pinky 1
-    100008: geo10
-    100010: geo11
-    100012: geo12
-    100014: geo3
-    100016: geo4
-    100018: geo5
-    100020: geo6
-    100022: geo7
-    100024: geo8
-    100026: geo9
-    100028: Pinky
-    400000: Disc
+    100004: Head
+    100006: Neck
+    100008: Neck1
+    100010: Neck2
+    400000: Body1
     400002: //RootNode
-    400004: geo1
-    400006: Pinky 1
-    400008: geo10
-    400010: geo11
-    400012: geo12
-    400014: geo3
-    400016: geo4
-    400018: geo5
-    400020: geo6
-    400022: geo7
-    400024: geo8
-    400026: geo9
-    400028: Pinky
-    2300000: Disc
-    2300002: geo1
-    2300004: Pinky 1
-    2300006: geo10
-    2300008: geo11
-    2300010: geo12
-    2300012: geo3
-    2300014: geo4
-    2300016: geo5
-    2300018: geo6
-    2300020: geo7
-    2300022: geo8
-    2300024: geo9
-    2300026: Pinky
-    3300000: Disc
-    3300002: geo1
-    3300004: Pinky 1
-    3300006: geo10
-    3300008: geo11
-    3300010: geo12
-    3300012: geo3
-    3300014: geo4
-    3300016: geo5
-    3300018: geo6
-    3300020: geo7
-    3300022: geo8
-    3300024: geo9
-    3300026: Pinky
-    4300000: Pinky
-    4300002: geo1
-    4300004: Disc
-    4300006: geo3
-    4300008: geo4
-    4300010: geo5
-    4300012: geo6
-    4300014: geo7
-    4300016: geo8
-    4300018: geo9
-    4300020: geo10
-    4300022: geo11
-    4300024: geo12
+    400004: Head
+    400006: Neck
+    400008: Neck1
+    400010: Neck2
+    2300000: Body1
+    2300002: Head
+    2300004: Neck
+    2300006: Neck1
+    2300008: Neck2
+    3300000: Body1
+    3300002: Head
+    3300004: Neck
+    3300006: Neck1
+    3300008: Neck2
+    4300000: Body1
+    4300002: Head
+    4300004: Neck
+    4300006: Neck1
+    4300008: Neck2
     9500000: //RootNode
   materials:
     importMaterials: 1
