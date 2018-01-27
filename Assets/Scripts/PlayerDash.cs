@@ -20,11 +20,16 @@ public class PlayerDash : MonoBehaviour {
     private Vector3 _dashPoint;
     private FirstPersonController FPSController;
 
-	void Start ()
+    private LineRenderer teleportBeamRenderer;
+
+    void Start ()
     {
         FPSController = GetComponent<FirstPersonController>();
         FOVKick.Setup(GetComponentInChildren<Camera>());
-	}
+
+        teleportBeamRenderer = GetComponent<LineRenderer>();
+        teleportBeamRenderer.enabled = false;
+    }
 
 	void Update () {
 
@@ -37,6 +42,8 @@ public class PlayerDash : MonoBehaviour {
         {
             Dash();
         }
+
+        TryShowTeleportIndicator();
 	}
 
     void Shoot()
@@ -56,10 +63,13 @@ public class PlayerDash : MonoBehaviour {
 
     IEnumerator Dashing()
     {
+        teleportBeamRenderer.enabled = false;
+
         for (int i = 0; i < DashTrails.Length; i++)
         {
             DashTrails[i].SetActive(true);
         }
+
         LeanTween.value(gameObject, 0, 1, DashSpeed).setOnUpdate((float val) => { PPBlur.weight = val; });
         StartCoroutine(FOVKick.FOVKickUp());
         FPSController.enabled = false;
@@ -77,6 +87,18 @@ public class PlayerDash : MonoBehaviour {
         for (int i = 0; i < DashTrails.Length; i++)
         {
             DashTrails[i].SetActive(false);
+        }
+    }
+
+    private void TryShowTeleportIndicator()
+    {
+        if (TeleportSO.CanTeleport && teleportBeamRenderer != null)
+        {
+            Vector3 end = TeleportSO.TeleportPosition;
+            end.y -= 1;
+            teleportBeamRenderer.enabled = true;
+            teleportBeamRenderer.SetPositions(new Vector3[] { transform.position, end });
+            teleportBeamRenderer.positionCount = 2;
         }
     }
 }

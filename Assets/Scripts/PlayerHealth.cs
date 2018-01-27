@@ -8,15 +8,21 @@ public class PlayerHealth : MonoBehaviour
     public int StartingHealth;
     public FloatVariable PlayerHP;
 
+    private DashDamage dashDamage;
+
     private void Start()
     {
+        dashDamage = GetComponentInChildren<DashDamage>();
         PlayerHP.Value = StartingHealth;
     }
 
     public void DealDamage(float damage)
     {
-        PlayerHP.Value -= damage;
-        CheckHealth();
+        if (!dashDamage.TeleportSO.IsTeleporting)
+        {
+            PlayerHP.Value -= damage;
+            CheckHealth();
+        }
     }
 
     void CheckHealth()

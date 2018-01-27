@@ -12,6 +12,7 @@ public class Teleporter : MonoBehaviour {
 	void Start () {
         _rb = GetComponent<Rigidbody>();
         _rb.AddForce(transform.forward * SpawnForce, ForceMode.Impulse);
+        TeleportSO.CanTeleport = false;
 	}
 
     private void OnCollisionEnter(Collision collision)
