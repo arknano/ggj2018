@@ -12,7 +12,7 @@ public class PlayerHealth : MonoBehaviour
 
     private void Start()
     {
-        dashDamage = GetComponent<DashDamage>();
+        dashDamage = GetComponentInChildren<DashDamage>();
         PlayerHP.Value = StartingHealth;
     }
 
