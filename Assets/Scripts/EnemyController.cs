@@ -27,11 +27,11 @@ public class EnemyController : MonoBehaviour {
 	void FixedUpdate () {
         float distanceToTarget = (target.position - transform.position).magnitude;
 
-        bool newPositionFound = determineNewPlayerPosition(out moveTarget);
+        bool newPositionFound = DetermineNewPlayerPosition(out moveTarget);
         if (newPositionFound)
         {
             TryLookAtPlayer(distanceToTarget);
-            TryMoveToPlayer(distanceToTarget);
+            Move(distanceToTarget);
             TryShoot(distanceToTarget);
         }
     }
@@ -47,14 +47,18 @@ public class EnemyController : MonoBehaviour {
         }
     }
 
-    void TryMoveToPlayer(float distanceToTarget)
+    void Move(float distanceToTarget)
     {
-        if (distanceToTarget <= movementConfig.sightDistance &&
-            distanceToTarget >= movementConfig.stopApproachingDistance)
+        if (distanceToTarget <= movementConfig.sightDistance)
         {
-            agent.destination = moveTarget;
-            agent.speed = movementConfig.speed;
-            agent.isStopped = false;
+            if (distanceToTarget >= movementConfig.stopApproachingDistance)
+            {
+                MoveToPlayer();
+            }
+            else
+            {
+                FleeFromPlayer();
+            }
         }
     }
 
@@ -119,7 +123,7 @@ public class EnemyController : MonoBehaviour {
         }
     }
 
-    bool determineNewPlayerPosition(out Vector3 moveTarget)
+    bool DetermineNewPlayerPosition(out Vector3 moveTarget)
     {
         RaycastHit hit;
         Vector3 rayDir = (target.position - weaponSpawn.position).normalized;
@@ -133,5 +137,26 @@ public class EnemyController : MonoBehaviour {
         }
         moveTarget = Vector3.zero;
         return false;
+    }
+
+    private void MoveToPlayer()
+    {
+        agent.destination = moveTarget;
+        agent.isStopped = false;
+    }
+
+    private void FleeFromPlayer()
+    {
+        float distance = movementConfig.stopApproachingDistance
+                - (target.position - transform.position).magnitude;
+        Vector3 runTo = transform.position - (target.position - transform.position) * distance;
+
+        NavMeshHit hit;
+        int mask = 1 << NavMesh.GetNavMeshLayerFromName("Default");
+        if (NavMesh.SamplePosition(runTo, out hit, distance, mask)) {
+            Debug.DrawLine(transform.position, hit.position);
+            agent.destination = hit.position;
+            agent.isStopped = false;
+        }
     }
 }
