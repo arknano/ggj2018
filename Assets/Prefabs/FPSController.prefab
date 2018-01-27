@@ -3141,7 +3141,8 @@ MonoBehaviour:
   - {fileID: 1401509796785740}
   - {fileID: 1070130683782930}
   - {fileID: 1589354081914924}
-  teleportBeacon: {fileID: 188050, guid: c879e892866c8db4f8930b25672233ac, type: 2}
+  teleportBeacon: {fileID: 1938301282876576, guid: a39244d9d483fa243bec2bd27392b4df,
+    type: 2}
 --- !u!114 &114968577116556074
 MonoBehaviour:
   m_ObjectHideFlags: 1
