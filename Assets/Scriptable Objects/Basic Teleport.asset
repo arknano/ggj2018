@@ -11,5 +11,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c64f84f798af8954b8e2c129a842f239, type: 3}
   m_Name: Basic Teleport
   m_EditorClassIdentifier: 
-  TeleportPosition: {x: -0.9398488, y: 1.6602964, z: 0.30754533}
-  CanTeleport: 1
+  TeleportPosition: {x: 0, y: 0, z: 0}
+  CanTeleport: 0
+  IsTeleporting: 0
