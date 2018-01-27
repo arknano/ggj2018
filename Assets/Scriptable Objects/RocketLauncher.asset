@@ -11,11 +11,9 @@ MonoBehaviour:
   m_Script: {fileID: 0}
   m_Name: RocketLauncher
   m_EditorClassIdentifier: Assembly-CSharp::EnemyWeaponSO
-  type: 0
+  type: 1
   reloadTime: 1
   accuracyRadius: 0
-  hitscanDistance: 0
-  hitscanDamage: 0
+  bullet: {fileID: 1183012661158578, guid: 6dd14576470bb524ca80c9e8fa22f6ec, type: 2}
+  attackDamage: 5
   projectileSpeed: 10
-  projectileDamage: 1
-  projectile: {fileID: 1321372059925976, guid: 267328501575d584b914ffbec4432653, type: 2}

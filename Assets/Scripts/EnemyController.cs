@@ -63,13 +63,54 @@ public class EnemyController : MonoBehaviour {
         {
             if (Time.time - lastShootTime >= weaponConfig.reloadTime)
             {
-                GameObject bullet = GameObject.Instantiate(weaponConfig.projectile, weaponSpawn);
-                ProjectileController projectileController = bullet.GetComponent<ProjectileController>();
-                projectileController.speed = weaponConfig.projectileSpeed;
-                projectileController.damage = weaponConfig.projectileDamage;
-                bullet.transform.parent = null;
                 lastShootTime = Time.time;
+                if (weaponConfig.type == EnemyWeaponSO.Type.Projectile)
+                {
+                    ShootProjectile();
+                }
+                else if (weaponConfig.type == EnemyWeaponSO.Type.HitScan)
+                {
+                    ShootHitscan();
+                }
             }
         }
+    }
+
+    void ShootProjectile()
+    {
+        GameObject bullet = GameObject.Instantiate(weaponConfig.bullet, weaponSpawn);
+        ProjectileController projectileController = bullet.GetComponent<ProjectileController>();
+        projectileController.speed = weaponConfig.projectileSpeed;
+        projectileController.damage = weaponConfig.attackDamage;
+        bullet.transform.parent = null;
+    }
+
+    void ShootHitscan()
+    {
+        Vector3 laserDir = mesh.forward;
+        Vector3 laserStart = mesh.position;
+        Vector3 laserEnd = laserStart + laserDir * movementConfig.attackDistance;
+
+        Debug.DrawLine(laserStart, laserEnd);
+
+        if (weaponConfig.bullet != null)
+        {
+            GameObject laser = GameObject.Instantiate(weaponConfig.bullet, mesh.transform);
+            LaserController laserController = laser.GetComponent<LaserController>();
+            laserController.positions = new Vector3[] { laserStart, laserEnd };
+        }
+
+        RaycastHit hit;
+        if (Physics.Raycast(laserStart, laserDir, out hit, movementConfig.attackDistance))
+        {
+            Debug.Log("Hit");
+
+            if (hit.collider.gameObject.tag == "Player")
+            {
+                Debug.Log("Hit player");
+                target.GetComponent<PlayerHealth>().DealDamage(weaponConfig.attackDamage);
+            }
+        }
+
     }
 }
