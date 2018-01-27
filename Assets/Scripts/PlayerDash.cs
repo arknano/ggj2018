@@ -54,7 +54,7 @@ public class PlayerDash : MonoBehaviour {
     void Shoot()
     {
         teleportBeaconInstance.SetActive(false);
-        var teleporter = Instantiate(TeleporterPrefab, Barrel.position, Barrel.rotation);
+        Instantiate(TeleporterPrefab, Barrel.position, Barrel.rotation);
     }
 
     void Dash()
