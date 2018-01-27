@@ -47,10 +47,6 @@ public class EnemyController : MonoBehaviour {
             Move(distanceToTarget);
             TryShoot(distanceToTarget);
         }
-        else
-        {
-            //agent.isStopped = true;
-        }
     }
 
     void LookAtTarget(float distanceToTarget, Vector3 lookTarget)
@@ -118,11 +114,9 @@ public class EnemyController : MonoBehaviour {
         // Strafe and move backwards if near player
         if (distanceToTarget < movementConfig.attackDistance / 2)
         {
-            Debug.Log("Runaway strafe");
             float moveAmount = movementConfig.attackDistance - distanceToTarget;
             strafeTo += fromPlayerDir * movementConfig.attackDistance;
         }
-        Debug.DrawLine(transform.position, strafeTo);
 
         Vector3 resultStrafeTo;
         if (NavMeshTo(strafeTo, 5, out resultStrafeTo))
