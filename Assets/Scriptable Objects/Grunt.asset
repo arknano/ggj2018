@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Name: Grunt
   m_EditorClassIdentifier: Assembly-CSharp::EnemyMovementSO
   speed: 1
+  turnSpeed: 1
   sightDistance: 50
   attackDistance: 10

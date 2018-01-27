@@ -8,6 +8,7 @@ public class EnemyController : MonoBehaviour {
     public EnemyMovementSO movementConfig;
     public EnemyWeaponSO weaponConfig;
     public Transform weaponSpawn;
+    public Transform mesh;
 
     private Transform target;
     private NavMeshAgent agent;
@@ -25,11 +26,23 @@ public class EnemyController : MonoBehaviour {
 	void FixedUpdate () {
         float distanceToTarget = (target.position - transform.position).magnitude;
 
-        TryMove(distanceToTarget);
+        TryLookAtPlayer(distanceToTarget);
+        TryMoveToPlayer(distanceToTarget);
         TryShoot(distanceToTarget);
     }
 
-    void TryMove(float distanceToTarget)
+    void TryLookAtPlayer(float distanceToTarget)
+    {
+        if (distanceToTarget < movementConfig.sightDistance)
+        {
+            Vector3 lookDir = target.position - transform.position;
+            Quaternion targetRotation = Quaternion.LookRotation(lookDir, transform.up);
+            transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation,
+                Time.fixedDeltaTime * movementConfig.turnSpeed);
+        }
+    }
+
+    void TryMoveToPlayer(float distanceToTarget)
     {
         if (distanceToTarget < movementConfig.sightDistance)
         {
