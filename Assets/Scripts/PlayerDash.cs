@@ -17,6 +17,8 @@ public class PlayerDash : MonoBehaviour {
     public FOVKick FOVKick = new FOVKick();
     public PostProcessVolume PPBlur;
     public GameObject[] DashTrails;
+    public Transform Shatter;
+    public float ExplosionForce;
     private bool _isDashing;
     private Vector3 _dashPoint;
     private FirstPersonController FPSController;
@@ -29,6 +31,11 @@ public class PlayerDash : MonoBehaviour {
     {
         FPSController = GetComponent<FirstPersonController>();
         FOVKick.Setup(GetComponentInChildren<Camera>());
+
+        TeleportSO.CanTeleport = false;
+        TeleportSO.IsTeleporting = false;
+        TeleportSO.TeleportPosition = Vector3.zero;
+
 
         teleportBeamRenderer = GetComponent<LineRenderer>();
         teleportBeamRenderer.enabled = false;
@@ -124,10 +131,18 @@ public class PlayerDash : MonoBehaviour {
     {
         PlayerMesh.transform.parent = null;
         TeleportSO.IsTeleporting = true;
+        var pieces = Shatter.GetComponentsInChildren<Rigidbody>();
+        PlayerMesh.SetActive(false);
+        Shatter.parent = null;
+        Shatter.gameObject.SetActive(true);
+        for (int i = 0; i < pieces.Length; i++)
+        {
+            pieces[i].AddExplosionForce(ExplosionForce, transform.position + (Vector3.down * 1), 1f);
+        }
         FPSController.enabled = false;
         StartCoroutine(FOVKick.FOVKickUp());
         LeanTween.move(gameObject, transform.position + (-transform.forward * 5) , DashSpeed);
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(3);
         GetComponent<SceneChange>().ChangeScene(SceneManager.GetActiveScene().name);
         GetComponent<CharacterController>().enabled = false;
     }
