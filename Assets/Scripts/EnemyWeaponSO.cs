@@ -16,6 +16,7 @@ public class EnemyWeaponSO : ScriptableObject {
     public float accuracyRadius;
     public GameObject bullet;
     public float attackDamage;
+    public AudioClip sound;
 
     [Header(header: "Projectile Only")]
     public float projectileSpeed;

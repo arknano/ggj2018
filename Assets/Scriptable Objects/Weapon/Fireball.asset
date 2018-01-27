@@ -16,4 +16,5 @@ MonoBehaviour:
   accuracyRadius: 0
   bullet: {fileID: 1321372059925976, guid: 267328501575d584b914ffbec4432653, type: 2}
   attackDamage: 10
+  sound: {fileID: 8300000, guid: 6f1acfbb8ee7a184f8303b8488bf05b6, type: 3}
   projectileSpeed: 30

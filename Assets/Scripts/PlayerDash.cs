@@ -22,6 +22,7 @@ public class PlayerDash : MonoBehaviour {
     private bool _isDashing;
     private Vector3 _dashPoint;
     private FirstPersonController FPSController;
+    public AudioSource DashSFX;
 
     public GameObject teleportBeacon;
     private GameObject teleportBeaconInstance;
@@ -35,8 +36,6 @@ public class PlayerDash : MonoBehaviour {
         TeleportSO.CanTeleport = false;
         TeleportSO.IsTeleporting = false;
         TeleportSO.TeleportPosition = Vector3.zero;
-
-
         teleportBeamRenderer = GetComponent<LineRenderer>();
         teleportBeamRenderer.enabled = false;
         teleportBeaconInstance = Instantiate(teleportBeacon);
@@ -72,6 +71,7 @@ public class PlayerDash : MonoBehaviour {
         if (TeleportSO.CanTeleport)
         {
             TeleportSO.CanTeleport = false;
+            DashSFX.Play();
             StartCoroutine(Dashing());
         }
         

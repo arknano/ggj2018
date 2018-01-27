@@ -24,6 +24,7 @@ public class EnemyController : MonoBehaviour {
     private MovementType movementType = MovementType.Strafe;
     private float strafeRadius;
     private bool moveLeft = false;
+    private AudioSource _audioSource;
 
 	// Use this for initialization
 	void Start () {
@@ -33,7 +34,8 @@ public class EnemyController : MonoBehaviour {
         target = GameObject.FindGameObjectWithTag("Player").transform;
         lastMovementChangeTime = Time.time;
         nextMovementChangeTime = lastMovementChangeTime + movementConfig.maxTimeBetweenMovementChange;
-	}
+        _audioSource = GetComponent<AudioSource>();
+    }
 	
 	// Update is called once per frame
 	void FixedUpdate () {
@@ -144,6 +146,7 @@ public class EnemyController : MonoBehaviour {
                 {
                     ShootHitscan();
                 }
+                _audioSource.PlayOneShot(weaponConfig.sound, 1f);
             }
         }
     }

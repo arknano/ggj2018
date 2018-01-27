@@ -3,14 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class KillCounter : MonoBehaviour {
+public class KillCounter : MonoBehaviour
+{
+    public GameObject Door;
 
-    public LevelDoorController levelDoorController;
 
     private List<GameObject> enemies = new List<GameObject>();
     private Text remainderText;
 
-    void Start() {
+    void Start()
+    {
         enemies.AddRange(GameObject.FindGameObjectsWithTag("Enemy"));
         remainderText = GetComponentInChildren<Text>();
         setRemainingCount(enemies.Count);
@@ -26,7 +28,8 @@ public class KillCounter : MonoBehaviour {
 
         if (enemies.Count == 0)
         {
-            levelDoorController.Open();
+
+            Door.SetActive(true);
         }
     }
 

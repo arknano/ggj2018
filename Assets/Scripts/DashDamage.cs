@@ -7,9 +7,15 @@ public class DashDamage : MonoBehaviour {
     public int Damage;
     public float CollisionSphereRadius;
     public TeleportSO TeleportSO;
-
+    public AudioClip KillSound;
     public float frameFreezeDuration;
     public GameObject damageParticles;
+    private AudioSource _audioSource;
+
+    private void Start()
+    {
+        _audioSource = GetComponent<AudioSource>();
+    }
 
     private void Update()
     {
@@ -23,9 +29,9 @@ public class DashDamage : MonoBehaviour {
                 {
                     showDamage = true;
                     collisions[i].GetComponent<EnemyHealth>().DealDamage(Damage);
+                    _audioSource.PlayOneShot(KillSound, 1f);
                 }
             }
-
             if (showDamage)
             {
                 frameFreeze();
