@@ -32206,8 +32206,8 @@ GameObject:
   - component: {fileID: 844852750}
   - component: {fileID: 844852749}
   - component: {fileID: 844852748}
-  - component: {fileID: 844852755}
   - component: {fileID: 844852754}
+  - component: {fileID: 844852755}
   m_Layer: 0
   m_Name: Lava
   m_TagString: Untagged
@@ -32222,10 +32222,10 @@ MeshCollider:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 844852747}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Convex: 0
+  m_Convex: 1
   m_InflateMesh: 0
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 1934736354}
@@ -33873,11 +33873,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 844852747}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e5d5d6a096bd82f4792c155adfa4a499, type: 3}
+  m_Script: {fileID: 11500000, guid: acad81ea5334aad419ed8faddf578f3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 100
-  speed: 0
+  damgae: 100
 --- !u!43 &851893521
 Mesh:
   m_ObjectHideFlags: 0
