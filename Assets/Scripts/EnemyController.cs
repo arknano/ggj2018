@@ -11,6 +11,7 @@ public class EnemyController : MonoBehaviour {
     public Transform mesh;
 
     private Transform target;
+    private Vector3 moveTarget = Vector3.zero;
     private NavMeshAgent agent;
     private float lastShootTime;
 
@@ -26,9 +27,13 @@ public class EnemyController : MonoBehaviour {
 	void FixedUpdate () {
         float distanceToTarget = (target.position - transform.position).magnitude;
 
-        TryLookAtPlayer(distanceToTarget);
-        TryMoveToPlayer(distanceToTarget);
-        TryShoot(distanceToTarget);
+        bool newPositionFound = determineNewPlayerPosition(out moveTarget);
+        if (newPositionFound)
+        {
+            TryLookAtPlayer(distanceToTarget);
+            TryMoveToPlayer(distanceToTarget);
+            TryShoot(distanceToTarget);
+        }
     }
 
     void TryLookAtPlayer(float distanceToTarget)
@@ -48,14 +53,9 @@ public class EnemyController : MonoBehaviour {
         if (distanceToTarget <= movementConfig.sightDistance &&
             distanceToTarget >= movementConfig.stopApproachingDistance)
         {
-            agent.destination = target.position;
+            agent.destination = moveTarget;
             agent.speed = movementConfig.speed;
             agent.isStopped = false;
-        }
-        else
-        {
-            agent.isStopped = true;
-            agent.speed = movementConfig.speed;
         }
     }
 
@@ -115,6 +115,21 @@ public class EnemyController : MonoBehaviour {
                 target.GetComponent<PlayerHealth>().DealDamage(weaponConfig.attackDamage);
             }
         }
+    }
 
+    bool determineNewPlayerPosition(out Vector3 moveTarget)
+    {
+        RaycastHit hit;
+        Vector3 rayDir = (target.position - weaponSpawn.position).normalized;
+        if (Physics.Raycast(weaponSpawn.position, rayDir.normalized, out hit))
+        {
+            if (hit.collider.gameObject.tag == "Player")
+            {
+                moveTarget = target.position;
+                return true;
+            }
+        }
+        moveTarget = Vector3.zero;
+        return false;
     }
 }
