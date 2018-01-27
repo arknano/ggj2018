@@ -111,6 +111,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 0
   speed: 0
+  Explodes: 1
+  ExplosionRadius: 5
+  ExplosionPrefab: {fileID: 1722600843717644, guid: a6f42d49c3cc0314e96ccb4b596d1ff8,
+    type: 2}
 --- !u!135 &135174413820254924
 SphereCollider:
   m_ObjectHideFlags: 1

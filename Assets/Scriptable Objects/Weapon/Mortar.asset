@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Name: Mortar
   m_EditorClassIdentifier: 
   type: 0
-  reloadTime: 1
+  reloadTime: 3
   accuracyRadius: 0
   bullet: {fileID: 1321372059925976, guid: 766da49620c6bd94c8733d02faa0f76e, type: 2}
-  attackDamage: 10
+  attackDamage: 30
   projectileSpeed: 30
