@@ -33,7 +33,7 @@ public class EnemyController : MonoBehaviour {
     private float lastShootTime;
     private float lastMovementChangeTime;
     private float nextMovementChangeTime;
-    private MovementType movementType = MovementType.Strafe;
+    private MovementType movementType = MovementType.ForwardBack;
     private float strafeRadius;
     private bool moveLeft = false;
     private AudioSource _audioSource;
