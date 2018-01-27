@@ -13,6 +13,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3
   turnSpeed: 3
-  sightDistance: 50
-  attackDistance: 30
-  stopApproachingDistance: 10
+  sightDistance: 20
+  attackDistance: 15
+  stopApproachingDistance: 5

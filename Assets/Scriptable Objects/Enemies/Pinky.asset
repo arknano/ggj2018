@@ -11,8 +11,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d64625842f5b70949aa092919ab12049, type: 3}
   m_Name: Pinky
   m_EditorClassIdentifier: 
-  walkSpeed: 1
-  runSpeed: 5
-  sightDistance: 50
-  attackDistance: 30
-  weapon: {fileID: 0}
+  speed: 6
+  turnSpeed: 10
+  sightDistance: 20
+  attackDistance: 2
+  stopApproachingDistance: 1

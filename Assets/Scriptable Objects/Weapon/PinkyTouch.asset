@@ -15,5 +15,5 @@ MonoBehaviour:
   reloadTime: 0.5
   accuracyRadius: 0
   bullet: {fileID: 0}
-  attackDamage: 10
+  attackDamage: 5
   projectileSpeed: 30
