@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 3357d8ed41c00c04a8c92bb70008a30f
-timeCreated: 1517034022
+timeCreated: 1517034181
 licenseType: Free
 SubstanceImporter:
   serializedVersion: 5
@@ -10,7 +10,7 @@ SubstanceImporter:
     prototypeName: Metal
     shaderName: 
     shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
-    shaderKeywords: _METALLICGLOSSMAP _NORMALMAP _PARALLAXMAP
+    shaderKeywords: _DETAIL_MULX2 _METALLICGLOSSMAP _NORMALMAP _PARALLAXMAP
     renderQueue: -1
     lightmapFlags: 4
     inputs:
@@ -36,15 +36,15 @@ SubstanceImporter:
           scale: {x: 1, y: 1}
           offset: {x: 0, y: 0}
       - _DetailAlbedoMap:
-          texture: {instanceID: 0}
-          scale: {x: 1, y: 1}
+          texture: {fileID: 2800000, guid: ab436b5ec22517a40825db427dab5820, type: 3}
+          scale: {x: 5, y: 5}
           offset: {x: 0, y: 0}
       - _DetailMask:
           texture: {instanceID: 0}
           scale: {x: 1, y: 1}
           offset: {x: 0, y: 0}
       - _DetailNormalMap:
-          texture: {instanceID: 0}
+          texture: {fileID: 2800000, guid: 2cdd6db9c958ae84794e9dfe407dc875, type: 3}
           scale: {x: 1, y: 1}
           offset: {x: 0, y: 0}
       - _EmissionMap:
