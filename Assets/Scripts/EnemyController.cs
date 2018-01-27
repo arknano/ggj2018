@@ -42,17 +42,22 @@ public class EnemyController : MonoBehaviour {
         bool newPositionFound = DetermineNewPlayerPosition(out moveTarget);
         if (newPositionFound)
         {
-            TryLookAtPlayer(distanceToTarget);
+            // Attack the player (or strafe)
+            LookAtTarget(distanceToTarget, target.position);
             Move(distanceToTarget);
             TryShoot(distanceToTarget);
         }
+        else
+        {
+            //agent.isStopped = true;
+        }
     }
 
-    void TryLookAtPlayer(float distanceToTarget)
+    void LookAtTarget(float distanceToTarget, Vector3 lookTarget)
     {
         if (distanceToTarget < movementConfig.sightDistance)
         {
-            Vector3 lookDir = target.position - weaponSpawn.position;
+            Vector3 lookDir = lookTarget - weaponSpawn.position;
             Quaternion targetRotation = Quaternion.LookRotation(lookDir, transform.up);
             mesh.transform.rotation = Quaternion.Lerp(mesh.transform.rotation, targetRotation,
                 Time.fixedDeltaTime * movementConfig.turnSpeed);
@@ -105,10 +110,19 @@ public class EnemyController : MonoBehaviour {
     {
         Vector3 fromPlayerDir = (transform.position - target.position).normalized;
 
-        float angle = 5 * (moveLeft ? 1 : -1);
+        float angle = 25 * (moveLeft ? 1 : -1);
         Vector3 fromPlayerAngled = Quaternion.AngleAxis(angle, Vector3.up) * fromPlayerDir;
         Vector3 strafeDirection = fromPlayerAngled - fromPlayerDir;
         Vector3 strafeTo = transform.position + strafeDirection * 5;
+
+        // Strafe and move backwards if near player
+        if (distanceToTarget < movementConfig.attackDistance / 2)
+        {
+            Debug.Log("Runaway strafe");
+            float moveAmount = movementConfig.attackDistance - distanceToTarget;
+            strafeTo += fromPlayerDir * movementConfig.attackDistance;
+        }
+        Debug.DrawLine(transform.position, strafeTo);
 
         Vector3 resultStrafeTo;
         if (NavMeshTo(strafeTo, 5, out resultStrafeTo))
@@ -209,6 +223,7 @@ public class EnemyController : MonoBehaviour {
         float distance = movementConfig.stopApproachingDistance
                 - (target.position - transform.position).magnitude;
         Vector3 runTo = transform.position - (target.position - transform.position) * distance;
+
         Vector3 resultRunTo;
         if (NavMeshTo(runTo, distance, out resultRunTo)) {
             agent.destination = resultRunTo;
@@ -219,7 +234,7 @@ public class EnemyController : MonoBehaviour {
     private bool NavMeshTo(Vector3 targetPoint, float dist, out Vector3 result)
     {
         NavMeshHit hit;
-        int mask = 1 << NavMesh.GetNavMeshLayerFromName("Default");
+        int mask = 1 << NavMesh.GetAreaFromName("Walkable");
         if (NavMesh.SamplePosition(targetPoint, out hit, dist, mask))
         {
             result = hit.position;
