@@ -15,3 +15,4 @@ MonoBehaviour:
   turnSpeed: 3
   sightDistance: 50
   attackDistance: 30
+  stopApproachingDistance: 10
