@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CreditsTimer : MonoBehaviour {
 
@@ -12,7 +13,7 @@ public class CreditsTimer : MonoBehaviour {
 	
 	IEnumerator BackToMenu()
     {
-        yield return new WaitForSeconds(8.9f);
+        yield return new WaitForSeconds(9f);
         sceneChange.ChangeScene("Menu");
     }
 }
