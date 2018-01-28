@@ -61,12 +61,15 @@ public class PlayerDash : MonoBehaviour {
 
     void Shoot()
     {
-        if (latestTeleporter != null)
+        if (!GetComponent<PlayerHealth>().isDead)
         {
-            latestTeleporter.isNewestTeleporter = false;
+            if (latestTeleporter != null)
+            {
+                latestTeleporter.isNewestTeleporter = false;
+            }
+            GameObject teleporterObject = Instantiate(TeleporterPrefab, Barrel.position, Barrel.rotation);
+            latestTeleporter = teleporterObject.GetComponent<Teleporter>();
         }
-        GameObject teleporterObject = Instantiate(TeleporterPrefab, Barrel.position, Barrel.rotation);
-        latestTeleporter = teleporterObject.GetComponent<Teleporter>();
     }
 
     void Dash()
