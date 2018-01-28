@@ -11,3 +11,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Morgan/M_1.unity
     guid: 97938123741d67847b564cf837b4048e
+  - enabled: 1
+    path: Assets/Scenes/Django/D_Test_2.unity
+    guid: bae1c36141c16884eb740e52faf64d5c
+  - enabled: 1
+    path: Assets/Scenes/Morgan/M_2.unity
+    guid: 3274f2b25dfd23f4cab05c57a3d17686
