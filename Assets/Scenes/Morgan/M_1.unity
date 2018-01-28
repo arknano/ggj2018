@@ -55559,6 +55559,11 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114039398893464810, guid: e253de095f1a99349aeb662d4019ee1c,
+        type: 2}
+      propertyPath: SceneName
+      value: D_Test_2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e253de095f1a99349aeb662d4019ee1c, type: 2}
   m_IsPrefabParent: 0
