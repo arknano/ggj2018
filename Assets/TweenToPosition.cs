@@ -9,6 +9,11 @@ public class TweenToPosition : MonoBehaviour {
     public float TweenTime;
 
 	void OnEnable () {
+        if (LeanTween.isTweening(gameObject))
+        {
+            LeanTween.cancel(gameObject);
+        }
+
         transform.position = StartingLocation.position;
         LeanTween.move(gameObject, TweenToTransform.position, TweenTime).setEase(LeanTweenType.easeInOutQuad);
 	}
