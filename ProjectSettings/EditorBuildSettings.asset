@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Django/Intro.unity
+    guid: 09cd09cd68a8c954e8b56ee25f7ecdc6
+  - enabled: 1
     path: Assets/Scenes/Django/D_Test.unity
     guid: 7a5b5c2ace1707d4ead8ae13eefcb179
   - enabled: 1
