@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class IntroControl : MonoBehaviour {
 
@@ -15,21 +16,24 @@ public class IntroControl : MonoBehaviour {
     public GameObject text9;
     public GameObject text10;
     public GameObject text11;
+    public GameObject text12;
 
     // Use this for initialization
     void Start () {
 
         Invoke("T1", 1);
-        Invoke("T2", 5);
+        Invoke("T2", 4);
         Invoke("T3", 10);
-        Invoke("T4", 15);
-        Invoke("T5", 20);
-        Invoke("T6", 25);
-        Invoke("T7", 30);
-        Invoke("T8", 35);
-        Invoke("T9", 40);
-        Invoke("T10", 45);
-
+        Invoke("T4", 12);
+        Invoke("T5", 17);
+        Invoke("T6", 21);
+        Invoke("T7", 25);
+        Invoke("T8", 29);
+        Invoke("T9", 38);
+        Invoke("T10", 39);
+        Invoke("T11", 40);
+        Invoke("T12", 43);
+        Invoke("T13", 44);
     }
 	
 	// Update is called once per frame
@@ -106,6 +110,20 @@ public class IntroControl : MonoBehaviour {
     {
 
         text11.SetActive(true);
+
+    }
+
+    void T12()
+    {
+
+        text12.SetActive(true);
+
+    }
+
+    void T13()
+    {
+
+        ;
 
     }
 }
