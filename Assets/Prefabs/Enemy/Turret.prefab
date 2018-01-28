@@ -409,6 +409,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fdd33be8e95d264092441620ce45e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damageParticles: {fileID: 1075845182927188, guid: c48d89ea5c13a5843b0d2d9dc36cbd36,
+    type: 2}
 --- !u!114 &114950459226246750
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -427,6 +429,12 @@ MonoBehaviour:
   - {fileID: 4589433699908394}
   - {fileID: 4328631661106908}
   mesh: {fileID: 4211166713664164}
+  _televiFace:
+    happy: {fileID: 0}
+    angry: {fileID: 0}
+    dead: {fileID: 0}
+    FaceTime: 0
+    PlayerHP: {fileID: 0}
 --- !u!135 &135539503500862978
 SphereCollider:
   m_ObjectHideFlags: 1

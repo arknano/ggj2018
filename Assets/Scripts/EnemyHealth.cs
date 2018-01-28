@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour {
 
     private KillCounter killCounter;
+    public GameObject damageParticles;
 
     public void Start()
     {
@@ -21,6 +22,17 @@ public class EnemyHealth : MonoBehaviour {
         {
             killCounter.EnemyKilled(gameObject);
         }
+        showDamageParticles();
         Destroy(gameObject);
+    }
+
+    void showDamageParticles()
+    {
+        if (damageParticles != null)
+        {
+            GameObject.Instantiate(damageParticles, transform.position,
+                    Quaternion.LookRotation(Vector3.up));
+
+        }
     }
 }
