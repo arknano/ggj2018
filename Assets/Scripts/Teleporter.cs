@@ -8,8 +8,12 @@ public class Teleporter : MonoBehaviour {
     public TeleportSO TeleportSO;
     private Rigidbody _rb;
 
-	// Use this for initialization
-	void Start () {
+    // When throwing another teleporter, set this to false
+    [HideInInspector]
+    public bool isNewestTeleporter = true;
+
+    // Use this for initialization
+    void Start () {
         _rb = GetComponent<Rigidbody>();
         _rb.AddForce(transform.forward * SpawnForce, ForceMode.Impulse);
         TeleportSO.CanTeleport = false;
@@ -17,7 +21,7 @@ public class Teleporter : MonoBehaviour {
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Level"))
+        if (collision.gameObject.CompareTag("Level") && isNewestTeleporter)
         {
             _rb.velocity = Vector3.zero;
             _rb.isKinematic = true;

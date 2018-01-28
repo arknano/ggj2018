@@ -27,6 +27,7 @@ public class PlayerDash : MonoBehaviour {
     public GameObject teleportBeacon;
     private GameObject teleportBeaconInstance;
     private LineRenderer teleportBeamRenderer;
+    private Teleporter latestTeleporter = null;
 
     void Start ()
     {
@@ -60,7 +61,15 @@ public class PlayerDash : MonoBehaviour {
 
     void Shoot()
     {
-        Instantiate(TeleporterPrefab, Barrel.position, Barrel.rotation);
+        if (!GetComponent<PlayerHealth>().isDead)
+        {
+            if (latestTeleporter != null)
+            {
+                latestTeleporter.isNewestTeleporter = false;
+            }
+            GameObject teleporterObject = Instantiate(TeleporterPrefab, Barrel.position, Barrel.rotation);
+            latestTeleporter = teleporterObject.GetComponent<Teleporter>();
+        }
     }
 
     void Dash()

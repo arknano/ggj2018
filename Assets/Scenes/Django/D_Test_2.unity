@@ -5991,10 +5991,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1783854503691842, guid: 963474fcd03ba7d4bbfc895977f152b0, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 963474fcd03ba7d4bbfc895977f152b0, type: 2}
   m_IsPrefabParent: 0
@@ -13290,6 +13286,7 @@ GameObject:
   - component: {fileID: 271779684}
   - component: {fileID: 271779683}
   - component: {fileID: 271779688}
+  - component: {fileID: 271779689}
   m_Layer: 0
   m_Name: Cube_Lava (1)
   m_TagString: Untagged
@@ -13673,6 +13670,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damgae: 100
+--- !u!65 &271779689
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 271779681}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 30, y: 1, z: 42.5}
+  m_Center: {x: 53, y: 0, z: 2.25}
 --- !u!1 &281502590
 GameObject:
   m_ObjectHideFlags: 0
@@ -20545,6 +20554,7 @@ GameObject:
   - component: {fileID: 315649567}
   - component: {fileID: 315649566}
   - component: {fileID: 315649572}
+  - component: {fileID: 315649573}
   m_Layer: 0
   m_Name: Cube_Lava
   m_TagString: Untagged
@@ -20928,6 +20938,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damgae: 100
+--- !u!65 &315649573
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 315649565}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 30, y: 1, z: 30}
+  m_Center: {x: 53, y: 0, z: -4}
 --- !u!43 &318468428
 Mesh:
   m_ObjectHideFlags: 0
@@ -24303,6 +24325,52 @@ Mesh:
   m_BakedConvexCollisionMesh: 
   m_BakedTriangleCollisionMesh: 
   m_MeshOptimized: 0
+--- !u!1001 &420370151
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4901330590010568, guid: c48d89ea5c13a5843b0d2d9dc36cbd36, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -33.269978
+      objectReference: {fileID: 0}
+    - target: {fileID: 4901330590010568, guid: c48d89ea5c13a5843b0d2d9dc36cbd36, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 6.1331596
+      objectReference: {fileID: 0}
+    - target: {fileID: 4901330590010568, guid: c48d89ea5c13a5843b0d2d9dc36cbd36, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 14.589451
+      objectReference: {fileID: 0}
+    - target: {fileID: 4901330590010568, guid: c48d89ea5c13a5843b0d2d9dc36cbd36, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4901330590010568, guid: c48d89ea5c13a5843b0d2d9dc36cbd36, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4901330590010568, guid: c48d89ea5c13a5843b0d2d9dc36cbd36, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4901330590010568, guid: c48d89ea5c13a5843b0d2d9dc36cbd36, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4901330590010568, guid: c48d89ea5c13a5843b0d2d9dc36cbd36, type: 2}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1075845182927188, guid: c48d89ea5c13a5843b0d2d9dc36cbd36, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: c48d89ea5c13a5843b0d2d9dc36cbd36, type: 2}
+  m_IsPrefabParent: 0
 --- !u!43 &425203263
 Mesh:
   m_ObjectHideFlags: 0
@@ -38729,7 +38797,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh-4917662
+  m_Name: pb_Mesh109950
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -41050,8 +41118,9 @@ GameObject:
   - component: {fileID: 816396831}
   - component: {fileID: 816396830}
   - component: {fileID: 816396829}
-  - component: {fileID: 816396828}
   - component: {fileID: 816396833}
+  - component: {fileID: 816396834}
+  - component: {fileID: 816396828}
   m_Layer: 0
   m_Name: Cube_Lava (2)
   m_TagString: Untagged
@@ -41072,20 +41141,18 @@ Transform:
   m_Father: {fileID: 2119957627}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!64 &816396828
-MeshCollider:
+--- !u!65 &816396828
+BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 816396826}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Convex: 1
-  m_InflateMesh: 0
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 1056058950}
+  m_Size: {x: 70, y: 1, z: 50}
+  m_Center: {x: 53, y: 0, z: -1.5}
 --- !u!114 &816396829
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -41443,6 +41510,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damgae: 100
+--- !u!65 &816396834
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 816396826}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 70, y: 1, z: 50}
+  m_Center: {x: 53, y: 0.5, z: -1.5}
 --- !u!4 &817726169 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4656581699235606, guid: 5ab364baa9a2ddc45aecefdba69f85a5,
@@ -52810,7 +52889,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh-5173132
+  m_Name: pb_Mesh110696
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -52933,6 +53012,48 @@ Mesh:
   m_BakedConvexCollisionMesh: 
   m_BakedTriangleCollisionMesh: 
   m_MeshOptimized: 0
+--- !u!1001 &1057246980
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4576930711335646, guid: e253de095f1a99349aeb662d4019ee1c, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4576930711335646, guid: e253de095f1a99349aeb662d4019ee1c, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4576930711335646, guid: e253de095f1a99349aeb662d4019ee1c, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4576930711335646, guid: e253de095f1a99349aeb662d4019ee1c, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4576930711335646, guid: e253de095f1a99349aeb662d4019ee1c, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4576930711335646, guid: e253de095f1a99349aeb662d4019ee1c, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4576930711335646, guid: e253de095f1a99349aeb662d4019ee1c, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4576930711335646, guid: e253de095f1a99349aeb662d4019ee1c, type: 2}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: e253de095f1a99349aeb662d4019ee1c, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1061607279
 GameObject:
   m_ObjectHideFlags: 0
@@ -72764,7 +72885,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh381922
+  m_Name: pb_Mesh110062
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2

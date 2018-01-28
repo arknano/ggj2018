@@ -12,6 +12,11 @@ public class PlayerHealth : MonoBehaviour
     private float _regenTime;
     private bool _regen;
 
+    [HideInInspector]
+    public bool isDead {
+        get { return PlayerHP.Value <= 0; }
+    }
+
     private DashDamage dashDamage;
 
     private void Start()
@@ -32,7 +37,7 @@ public class PlayerHealth : MonoBehaviour
 
     void CheckHealth()
     {
-        if (PlayerHP.Value <= 0)
+        if (isDead)
         {
             Die();
         }
