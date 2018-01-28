@@ -117,10 +117,13 @@ public class EnemyController : MonoBehaviour {
     {
         if (distanceToTarget <= movementConfig.sightDistance)
         {
-            if (distanceToTarget < movementConfig.stopApproachingDistance - 1)
+            float stopDist = movementConfig.stopApproachingDistance - movementConfig.stopApproachingLeeway;
+            stopDist = stopDist < 0.5f ? 0.5f : stopDist;
+            if (distanceToTarget <= stopDist)
             {
                 FleeFromPlayer();
-            } else
+            } 
+            else
             {
                 MoveToPlayer();
             }
