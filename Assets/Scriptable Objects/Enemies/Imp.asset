@@ -15,6 +15,7 @@ MonoBehaviour:
   turnSpeed: 3
   sightDistance: 20
   attackDistance: 15
-  stopApproachingDistance: 5
+  stopApproachingDistance: 6
+  stopApproachingLeeway: 2
   canStrafe: 1
   maxTimeBetweenMovementChange: 4

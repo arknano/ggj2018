@@ -9,6 +9,18 @@ public class EnemyController : MonoBehaviour {
     public EnemyWeaponSO weaponConfig;
     public Transform[] weaponSpawns;
     public Transform mesh;
+    [SerializeField]
+    private TeleviFace _televiFace = new TeleviFace();
+
+    [System.Serializable]
+    public class TeleviFace
+    {
+        public GameObject happy;
+        public GameObject angry;
+        public GameObject dead;
+        public float FaceTime;
+        public FloatVariable PlayerHP;
+    }
 
     private enum MovementType
     {
@@ -21,7 +33,7 @@ public class EnemyController : MonoBehaviour {
     private float lastShootTime;
     private float lastMovementChangeTime;
     private float nextMovementChangeTime;
-    private MovementType movementType = MovementType.Strafe;
+    private MovementType movementType = MovementType.ForwardBack;
     private float strafeRadius;
     private bool moveLeft = false;
     private AudioSource _audioSource;
@@ -49,6 +61,17 @@ public class EnemyController : MonoBehaviour {
             Move(distanceToTarget);
             TryShoot(distanceToTarget);
         }
+
+        if (_televiFace.angry)
+        {
+            if (_televiFace.PlayerHP.Value <= 0)
+            {
+                _televiFace.angry.SetActive(false);
+                _televiFace.happy.SetActive(false);
+                _televiFace.dead.SetActive(true);
+            }
+        }
+
     }
 
     void LookAtTarget(float distanceToTarget, Vector3 lookTarget)
@@ -94,10 +117,13 @@ public class EnemyController : MonoBehaviour {
     {
         if (distanceToTarget <= movementConfig.sightDistance)
         {
-            if (distanceToTarget < movementConfig.stopApproachingDistance - 1)
+            float stopDist = movementConfig.stopApproachingDistance - movementConfig.stopApproachingLeeway;
+            stopDist = stopDist < 0.5f ? 0.5f : stopDist;
+            if (distanceToTarget <= stopDist)
             {
                 FleeFromPlayer();
-            } else
+            } 
+            else
             {
                 MoveToPlayer();
             }
@@ -167,6 +193,14 @@ public class EnemyController : MonoBehaviour {
 
     void ShootHitscan()
     {
+        if (_televiFace.angry)
+        {
+            if (_televiFace.PlayerHP.Value >= 0)
+            {
+                StartCoroutine(TeleviFaceChange());
+            }
+        }
+
         Vector3 random = new Vector3(Random.insideUnitCircle.x, Random.insideUnitCircle.y, 0)
                 * weaponConfig.accuracyRadius;
         Vector3 laserDir = weaponSpawns[0].forward + random;
@@ -184,6 +218,7 @@ public class EnemyController : MonoBehaviour {
             GameObject laser = GameObject.Instantiate(weaponConfig.bullet, weaponSpawns[0].position, weaponSpawns[0].rotation);
             LaserController laserController = laser.GetComponent<LaserController>();
             laserController.positions = new Vector3[] { laserStart, laserEnd };
+
         }
 
         if (Physics.Raycast(laserStart, laserDir, out hit, movementConfig.attackDistance))
@@ -193,6 +228,9 @@ public class EnemyController : MonoBehaviour {
                 target.GetComponent<PlayerHealth>().DealDamage(weaponConfig.attackDamage);
             }
         }
+
+
+
     }
 
     bool DetermineNewPlayerPosition(out Vector3 moveTarget)
@@ -242,4 +280,14 @@ public class EnemyController : MonoBehaviour {
         result = Vector3.zero;
         return false;
     }
+
+    IEnumerator TeleviFaceChange()
+    {
+        _televiFace.angry.SetActive(true);
+        _televiFace.happy.SetActive(false);
+        yield return new WaitForSeconds(_televiFace.FaceTime);
+        _televiFace.happy.SetActive(true);
+        _televiFace.angry.SetActive(false);
+    }
+
 }
