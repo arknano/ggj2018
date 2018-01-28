@@ -9,7 +9,6 @@ public class DashDamage : MonoBehaviour {
     public TeleportSO TeleportSO;
     public AudioClip KillSound;
     public float frameFreezeDuration;
-    public GameObject damageParticles;
     private AudioSource _audioSource;
 
     private void Start()
@@ -35,7 +34,6 @@ public class DashDamage : MonoBehaviour {
             if (showDamage)
             {
                 frameFreeze();
-                showDamageParticles();
             }
         }
     }
@@ -43,14 +41,6 @@ public class DashDamage : MonoBehaviour {
     void frameFreeze()
     {
         StartCoroutine(SlowTimeScale());
-    }
-
-    void showDamageParticles()
-    {
-        if (damageParticles != null)
-        {
-            GameObject.Instantiate(damageParticles, transform.position, transform.rotation);
-        }
     }
 
     IEnumerator SlowTimeScale()
