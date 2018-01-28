@@ -15174,6 +15174,48 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 486157384}
   m_Mesh: {fileID: 4301086, guid: 3885550e944550348bb149ed2410c74e, type: 3}
+--- !u!1001 &494090704
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4689876710805632, guid: 20113091df545d54db8b0cb92b8fba9c, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4689876710805632, guid: 20113091df545d54db8b0cb92b8fba9c, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4689876710805632, guid: 20113091df545d54db8b0cb92b8fba9c, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4689876710805632, guid: 20113091df545d54db8b0cb92b8fba9c, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4689876710805632, guid: 20113091df545d54db8b0cb92b8fba9c, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4689876710805632, guid: 20113091df545d54db8b0cb92b8fba9c, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4689876710805632, guid: 20113091df545d54db8b0cb92b8fba9c, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4689876710805632, guid: 20113091df545d54db8b0cb92b8fba9c, type: 2}
+      propertyPath: m_RootOrder
+      value: 19
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 20113091df545d54db8b0cb92b8fba9c, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &494681333
 GameObject:
   m_ObjectHideFlags: 0
@@ -51510,7 +51552,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4638151835573412, guid: 8adc0da319b7e444ca0725c93cacf76d, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.6187633
       objectReference: {fileID: 0}
     - target: {fileID: 4638151835573412, guid: 8adc0da319b7e444ca0725c93cacf76d, type: 2}
       propertyPath: m_LocalPosition.z
@@ -51535,6 +51577,22 @@ Prefab:
     - target: {fileID: 4638151835573412, guid: 8adc0da319b7e444ca0725c93cacf76d, type: 2}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4638151835573412, guid: 8adc0da319b7e444ca0725c93cacf76d, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 0.3085894
+      objectReference: {fileID: 0}
+    - target: {fileID: 4638151835573412, guid: 8adc0da319b7e444ca0725c93cacf76d, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 0.3085894
+      objectReference: {fileID: 0}
+    - target: {fileID: 4638151835573412, guid: 8adc0da319b7e444ca0725c93cacf76d, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 0.3085894
+      objectReference: {fileID: 0}
+    - target: {fileID: 1462479255946040, guid: 8adc0da319b7e444ca0725c93cacf76d, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8adc0da319b7e444ca0725c93cacf76d, type: 2}
@@ -62720,6 +62778,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1900378786129998, guid: 12bf5b1678e502c419db48bca7ac4278, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 12bf5b1678e502c419db48bca7ac4278, type: 2}
   m_IsPrefabParent: 0
@@ -63469,7 +63531,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!95 &2098609278
 Animator:
   serializedVersion: 3
