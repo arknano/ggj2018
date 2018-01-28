@@ -22,18 +22,15 @@ public class IntroControl : MonoBehaviour {
     void Start () {
 
         Invoke("T1", 1);
-        Invoke("T2", 4);
-        Invoke("T3", 10);
-        Invoke("T4", 12);
-        Invoke("T5", 17);
-        Invoke("T6", 21);
-        Invoke("T7", 25);
-        Invoke("T8", 29);
-        Invoke("T9", 38);
-        Invoke("T10", 39);
-        Invoke("T11", 40);
-        Invoke("T12", 43);
-        Invoke("T13", 44);
+        Invoke("T2", 3);
+        Invoke("T3", 7);
+        Invoke("T4", 10);
+        Invoke("T5", 13);
+        Invoke("T6", 16);
+        Invoke("T9", 22);
+        Invoke("T10", 23);
+        Invoke("T11", 24);
+        Invoke("T13", 28);
     }
 	
 	// Update is called once per frame
@@ -85,12 +82,7 @@ public class IntroControl : MonoBehaviour {
 
     }
 
-    void T8()
-    {
 
-        text8.SetActive(true);
-
-    }
 
     void T9()
     {
@@ -122,8 +114,6 @@ public class IntroControl : MonoBehaviour {
 
     void T13()
     {
-
-        ;
-
+        GetComponent<SceneChange>().ChangeScene("D_Test");
     }
 }

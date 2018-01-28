@@ -8,15 +8,11 @@ public class MainMenu : MonoBehaviour {
 
     private void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+
     }
 
-    private void Update()
+    public void Quit()
     {
-        if (Input.GetButtonDown("Fire1"))
-        {
-            GetComponent<SceneChange>().ChangeScene(SceneName);
-        }
+        Application.Quit();
     }
 }
