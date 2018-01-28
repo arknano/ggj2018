@@ -17,3 +17,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Morgan/M_2.unity
     guid: 3274f2b25dfd23f4cab05c57a3d17686
+  - enabled: 1
+    path: Assets/Scenes/Credits.unity
+    guid: 52953c4eb9294544e9cbe93e2bbabc57
